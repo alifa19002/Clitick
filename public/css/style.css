@@ -1,0 +1,69 @@
+*{
+    font-family: "Alegreya Sans";
+}
+
+body{
+    min-height: 100vh;
+}
+/* Navbar */
+.navbar{
+    position: sticky;
+    top: 0;
+    background-color: white;
+}
+.navbar-nav{
+    font-size: 23;
+    color: #181B32;
+}
+
+.nav-link{
+    margin-right: 50px;
+}
+
+.dropdown-toggle::after{
+    display: none !important;
+}
+
+.fa-chevron-down{
+    font-size: smaller;
+    margin-left: 10px;
+}
+
+.dropdown:hover .dropdown-menu{
+    display: block;
+    margin-top: 0;
+}
+
+/* Utility */
+.tombol{
+    border-radius: 50px;
+    padding: 3px 30px;
+    margin-top: 5px;
+    text-align: center;
+    text-decoration: none;
+    /* padding-inline: 30px; */
+}
+
+/* Footer */
+footer{
+    position: sticky;
+    top: 100%;
+    bottom: 0;
+    width: 100%;
+}
+footer a{
+    text-decoration: none;
+    font-size: 12pt;
+}
+
+footer #atas{
+    background-color: #4C4C4C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer .mb-3 a{
+    padding: 25px;
+    color: white;
+}
