@@ -5,6 +5,43 @@
 body{
     min-height: 100vh;
 }
+
+.bg{
+    background-image: url("/images/bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* Login */
+.box-login input{
+    background: none;
+}
+
+
+/* detail event */
+.bt1{
+    width: 80%;
+}
+
+.desc {
+    font-size: medium;
+    text-align: justify;
+}
+
+.container #poster{
+    align-items: center;
+}
+
+.disable {
+    color: lightgrey;
+}
+
+.bg-logo{
+    display: block;
+    margin: 150px;
+}
+
 /* Navbar */
 .navbar{
     position: sticky;
