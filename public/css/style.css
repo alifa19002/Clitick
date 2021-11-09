@@ -50,6 +50,7 @@ footer{
     top: 100%;
     bottom: 0;
     width: 100%;
+    margin-top: 150px;
 }
 footer a{
     text-decoration: none;
@@ -66,4 +67,76 @@ footer #atas{
 footer .mb-3 a{
     padding: 25px;
     color: white;
+}
+
+/* User Profile */
+.container #top-content{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.container .content img{
+    margin-right: 18px;
+}
+.container .content h5{
+    margin-top: 70px;
+    font-weight: lighter;
+}
+
+.container .content h4{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.container .content h6{
+    font-size: 18px;
+    font-weight: medium;
+}
+
+.container .content a{
+    margin-top: 15px;
+    border-radius: 200px;
+    padding: 6px 25px;
+    border: #1565D8 solid;
+    background-color: white;
+    color: #181B32;
+    font-weight: normal;
+}
+
+.container #middle-content{
+    margin-top: 30px;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 60px;
+    text-decoration: none;
+}
+
+.container #middle-content a{
+    text-decoration: none;
+    color: #181B32;
+}
+
+.container #bottom-content{
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.container #bottom-content h6{
+    font-weight: bold;
+    font-size: 15px;
+    color: #1565D8;
+    margin-bottom: 15px;
+}
+
+.container #bottom-content p{
+    font-weight: normal;
+    font-size: 18px;
+    color: #181B32;
+}
+
+.container #no-data{
+    text-align: center;
+    font-weight: medium;
 }
