@@ -20,7 +20,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 */
 
 Route::get('/', function () {
-    return view('home', [
+    return view('user/home', [
         "title" => "Home",
         "active" => 'home',
     ]);
@@ -33,6 +33,31 @@ Route::get('/about', function () {
         "name" => "Clitick",
         "email" => "clitick@gmail.com",
         "image" => "photo.png"
+    ]);
+});
+
+Route::get('/informasi', function () {
+    return view('informasi', [
+        'title' => 'Informasi',
+        'name' => 'Clitick'
+    ]);
+});
+
+Route::get('/detail', function () {
+    return view('/event/detailEvent', [
+        "title" => "Detail Event"
+    ]);
+});
+
+Route::get('/myprofile', function () {
+    return view('/user/profile1', [
+        "title" => "My Profile"
+    ]);
+});
+
+Route::get('/events', function () {
+    return view('/event/events', [
+        "title" => "Events"
     ]);
 });
 
