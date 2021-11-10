@@ -29,70 +29,67 @@
             <div class="content" id="top-content">
                 <img src="images/foto-profil.png" width="280px" style="float:left" alt="">
                 <h5>Hi,</h5>
-                <h4>Sueb Ramadhan</h4>
-                <h6>suebramadhan@gmail.com</h6>
+                <h4>John Doe</h4>
+                <h6>johndoe@gmail.com</h6>
                 <a class="btn btn-primary" href="#">Edit Profil</a>
             </div>
             </div>
         </div>
     </div>
-
+    
     <div class="container">
         <div class="row justify-content-md-center" id="middle-content">
-            <div class="col-4">
-                <a href="">Profil Saya</a>
-            </div>
-            <div class="col-4">
-                <a href="">Event Saya</a> 
+            <ul class="nav nav-pills justify-content-center" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="true">Profil Saya</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-events-tab" data-bs-toggle="pill" data-bs-target="#pills-events" type="button" role="tab" aria-controls="pills-events" aria-selected="false">Event Saya</button>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    <div class="row justify-content" id="bottom-content">
+                        <div class="col-6">
+                            <h6>NAMA</h6>
+                            <p>John Doe</p>
+                        </div>
+                        <div class="col-6">
+                            <h6>JENIS KELAMIN</h6>
+                            <p>Laki-laki</p>
+                        </div>
+                        <div class="col-6">
+                            <h6>EMAIL</h6>
+                            <p>johndoe@gmail.com</p>
+                        </div>
+                        <div class="col-6">
+                            <h6>NO TELEPON</h6>
+                            <p>+6281284109204</p>
+                        </div>
+                        <div class="col-6">
+                            <h6>TANGGAL LAHIR</h6>
+                            <p>10/10/2001</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="pills-events" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    <!-- Event saya - kalo no data  -->
+                    <div class="row justify-content-md-center">
+                        <div class="content" id="no-data">
+                            <img src="images/no-data.png" width="280px" alt="">
+                            <p>Sepertinya kamu belum mengajukan publikasi event nih!</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="container">
-        <div class="row justify-content-md-center" id="bottom-content">
-            <div class="col-4">
-                <h6>NAMA</h6>
-                <p>Sueb Ramadhan</p>
-            </div>
-            <div class="col-4">
-                <h6>JENIS KELAMIN</h6>
-                <p>Laki-laki</p>
-            </div>
-        </div>
-
-        <div class="row justify-content-md-center" id="bottom-content">
-            <div class="col-4">
-                <h6>EMAIL</h6>
-                <p>suebramadhan@gmail.com</p>
-            </div>
-            <div class="col-4">
-                <h6>NO TELEPON</h6>
-                <p>+6281284109204</p>
-            </div>
-        </div>
-
-        <div class="row justify-content-md-center" id="bottom-content">
-            <div class="col-4">
-                <h6>TANGGAL LAHIR</h6>
-                <p>10/10/2001</p>
-            </div>
-            <div class="col-4">
-            </div>
-        </div>
-    </div>
-
-    <!-- Event saya - kalo no data -->
-    <div class="container">
-        <div class="row justify-content-md-center">
-            <div class="content" id="no-data">
-                <img src="images/no-data.png" width="280px" alt="">
-                <p>Sepertinya kamu belum mengajukan publikasi event nih!</p>
-            </div>
-            </div>
-        </div>
-    </div>
     <!-- Footer -->
     @include('template.footer')
+
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

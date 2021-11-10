@@ -40,5 +40,11 @@ Route::get('/myprofile', function () {
     ]);
 });
 
+Route::get('/events', function () {
+    return view('/event/events' , [
+        "title" => "Events"
+    ]);
+});
+
 Route::get('/login', [LoginController::class, 'index']);
 Route::get('/register', [RegisterController::class, 'index']);

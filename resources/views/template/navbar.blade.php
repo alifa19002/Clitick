@@ -10,14 +10,13 @@
                     <a class="nav-link {{ $title === ("Home") ? 'active' : '' }}" aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle {{ $title === ("Event") ? 'active' : '' }}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle {{ $title === ("Event") ? 'active' : '' }}" href="/events" id="navbarDropdown" role="button"  aria-expanded="false">
                     Event<i class="fas fa-chevron-down"></i></a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Event Terbaru</a></li>
-                    <li><a class="dropdown-item" href="#">Event Terpopuler</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Event Terbaru</a></li>
+                        <li><a class="dropdown-item" href="#">Event Terpopuler</a></li>
+                        <!-- <li><hr class="dropdown-divider"></li> -->
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ $title === ("Informasi") ? 'active' : '' }}" href="/informasi">Informasi</a>
