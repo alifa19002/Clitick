@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ModifyUserTable extends Migration
+class CreateDomisilisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,11 @@ class ModifyUserTable extends Migration
      */
     public function up()
     {
-        DB::statement("ALTER TABLE user ADD foto_profil LONGBLOB");
+        Schema::create('domisilis', function (Blueprint $table) {
+            $table->id();
+            $table->char('nama_domisili');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +27,6 @@ class ModifyUserTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('domisilis');
     }
 }

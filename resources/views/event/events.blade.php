@@ -54,26 +54,14 @@
         </div>
 
         <div class="row justify-content" id="eventPreview">
-            <div class="col-6">
-                <a href="/detail"><img src="images/contoh-poster.png" width="148,5px" height="210px" style="float:left" alt=""></a>
-                <h5><a href="/detail" style="text-decoration:none; color:#181B32; opacity:90%">Talkshow with Dr.Murray Stein</a></h5>
-                <p>24 Oktober 2021</p>
-                <a href="#" class="btn">Seminar</a>
-            </div>
-
-            <!-- contoh aja kalo misal eventnya ada banyak-->
-            <div class="col-6">
-                <a href=""><img src="images/contoh-poster.png" width="148,5px" height="210px" style="float:left" alt=""></a>
-                <h5><a href="#" style="text-decoration:none; color:#181B32; opacity:90%">Workshop Musik</a></h5>
-                <p>24 Oktober 2021</p>
-                <a href="#" class="btn">Workshop</a>
-            </div>
-            <div class="col-6">
-                <a href=""><img src="images/contoh-poster.png" width="148,5px" height="210px" style="float:left" alt=""></a>
-                <h5><a href="#" style="text-decoration:none; color:#181B32; opacity:90%">Lomba Aransemen Lagu</a></h5>
-                <p>24 Oktober 2021</p>
-                <a href="#" class="btn">Lomba</a>
-            </div>
+            @foreach ($events as $event)
+                <div class="col-6">
+                    <a href="/detail"><img src="images/contoh-poster.png" width="148,5px" height="210px" style="float:left" alt=""></a>
+                    <h5><a href="/detail" style="text-decoration:none; color:#181B32; opacity:90%">{{ $event->nama_event }}</a></h5>
+                    <p>{{ $event->tgl_event }}</p>
+                    <a href="#" class="btn">{{ $event->category->nama_kategori }}</a>
+                </div>
+            @endforeach
         </div>
     </div>
 

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\EventController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -55,11 +56,7 @@ Route::get('/myprofile', function () {
     ]);
 });
 
-Route::get('/events', function () {
-    return view('/event/events', [
-        "title" => "Events"
-    ]);
-});
+Route::get('/events', [EventController::class, 'index']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
