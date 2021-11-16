@@ -50,6 +50,12 @@ Route::get('/detail', function () {
     ]);
 });
 
+Route::get('/pengajuan', function () {
+    return view('/event/pengajuan', [
+        "title" => "Pengajuan Event"
+    ]);
+});
+
 Route::get('/myprofile', function () {
     return view('/user/profile1', [
         "title" => "My Profile"

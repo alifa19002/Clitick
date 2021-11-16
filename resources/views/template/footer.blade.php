@@ -62,7 +62,7 @@
 
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
                 <p>Tertarik mempublikasikan eventmu di Clitick?</p>
-                <button class="btn btn-primary tombol">Ajukan Publikasi</button>
+                <a class="btn btn-primary tombol" href="/pengajuan">Ajukan Publikasi</a>
             </div>
         </div>
     </div>

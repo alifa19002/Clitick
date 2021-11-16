@@ -17,15 +17,43 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Clitick</title>
   </head>
-  <body>
+  <body class="bg">
     <!-- navbar -->
     @include('template.navbar')
+   
     
     <!-- Content -->
+    <div class="container text-white" >
+      <a><img src="images/logo2.png" height="200"></a>
+    </div>
+    <br><br><br>
 
+    <div class="container text-white">
+      <h4 style="text-align: center">MENGAPA LEBIH BAIK PUBLIKASI DI CLITICK?</h4>
+      <br>
+        <div class="container col-md-4 justify-content-center">
+          <p>&#10004; Publikasi tanpa persyaratan yang rumit</p>
+          <p>&#10004; Pembayaran yang mudah</p>
+       </div>
+    </div>
+    <br><br>
+
+    <div class="container bg-light col-md-3" style="text-align: center; padding: 10px">
+      <center><a><img src="images/poster-home.png"></a></center>
+      <p>Pensi Fest</p>
+      <p>30/10/2021</p>
+      <button class class="btn btn-secondary">Detail</button>
+    </div>
+    <br>
 
     <!-- Footer -->
-    @include('template.footer')
+    <footer class="footer bg-dark text-white d-flex py-2 align-items-center">
+      <div class="container">
+        <p style="text-align: center">@Copyright 2021</p>
+      </div>
+    </footer>
+   
+
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

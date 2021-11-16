@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -15,14 +15,49 @@
     <script src="https://kit.fontawesome.com/fb85f1a3b6.js" crossorigin="anonymous"></script>
     <!-- My CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <title>CLITICK | {{ $title }}</title>
+    <title>Clitick</title>
   </head>
   <body class="bg">
     <!-- navbar -->
     @include('template.navbar')
     
     <!-- Content -->
- 
+    <div class="container bg-dark text-white py-5 bg-opacity-75" style="padding:150px">
+        <h3>Kirim Event</h3>
+        <p>
+            Publikasi Event di Clitick!
+            <br>
+            <ol>
+                <li>Mengisi form pengajuan event pada halaman Pengajuan Event</li>
+                <li>Upload bukti pengiriman pada halaman Pengajuan Event</li>
+                <li>Menunggu konfirmasi dari admin setelah pembayaran maks 24 jam</li>
+                <li>Setelah dikonfirmasi oleh admin,konten diterima dan diunggah ke halaman Events</li>
+            </ol>
+            <br>
+            <b>Price : 10k/Event</b>
+            <br><br>
+
+            <b>Contacts</b>
+            <br>
+            Whatsapp : 0838 7872 4611
+            <br>
+            Telegram : https://t.me/clitick
+            <br>
+            Email : clitick@gmail.com
+            <br><br>
+            Pastikan caption event kamu tersedia informasi tanggal, tempat dan kontak yang bisa dihubungi.
+            <br>
+            Mohon tambahkan dibawah captionnya “dipublikasikan oleh clitick.com”
+            <br>
+            Ikuti juga update info event di sosial media kami :
+            <ul>
+                <li>Twitter : Clitick</li>
+                <li>Instagram : Clitick</li>
+                <li>Facebook : Clitick</li>
+                <li>Telegram : Clitick</li>
+            </ul>
+        </p>
+    </div>
  
     <!-- Footer -->
     @include('template.footer')
