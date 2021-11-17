@@ -22,6 +22,8 @@ class RegisterController extends Controller
             'name' => 'required|max:255',
             'username' => ['required', 'min:3', 'max:255', 'unique:users'],
             'email' => 'required|email:dns|unique:users',
+            'no_telp' => 'required|numeric|digits_between:10,14',
+            'jk' => 'required|max:1',
             'password' => 'required|min:5|max:255'
         ]);
 

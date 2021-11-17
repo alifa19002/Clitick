@@ -35,6 +35,35 @@
                 @enderror
               </div>
               <div class="form-floating">
+                <input type="tel" name="no_telp" class="form-control @error('no_telp') is-invalid @enderror" id="no_telp" placeholder="+628123456789" required value="{{ old('no_telp') }}">
+                <label for="no_telp">Nomor Telepon</label>
+                @error('no_telp')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+              </div>
+              <div class="jk_input">
+                <label for="jk">Jenis Kelamin</label>
+                <div class="form-check">
+                  <input class="form-check-input @error('jk') is-invalid @enderror" type="radio" name="jk" id="jk" required value="L" {{ old('jk') == 'L' ? 'checked' : '' }}>
+                  <label class="form-check-label" for="jk">
+                    L
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input @error('jk') is-invalid @enderror" type="radio" name="jk" id="jk" required value="P" {{ old('jk') == 'P' ? 'checked' : '' }}>
+                  <label class="form-check-label" for="jk">
+                    P
+                  </label>
+                </div>
+                @error('jk')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+              </div>
+              <div class="form-floating">
                 <input type="password" name="password" class="form-control rounded-bottom @error('password') is-invalid @enderror" id="password" placeholder="Password" required>
                 <label for="password">Password</label>
                 @error('password')
