@@ -24,40 +24,47 @@
     <!-- Content -->
     <div class="container bg-dark text-white col-md-8 justify-content-center py-3 my-3 ">
         <h4 style="text-align: center">Pengajuan Event</h4> <br>    
-        <form method="POST" action="" class="offset-md-1">
+        <form method="POST" action="/pengajuan" class="offset-md-1">
+            @csrf
             <div class="form-group row col-md-11">
                 <label for="nama-event">Nama Event</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="nama_event" value="{{ old('nama_event') }}">
             </div>
             <div class="form-group row col-md-11">
                 <label for="deskripsi-event">Deskripsi Event</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="deskripsi_event" value="{{ old('deskripsi_event') }}">
             </div>
             <div class="form-group row col-md-11">
                 <label for="institusi-event">Institusi Penyelenggara</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="institusi_penyelenggara" value="{{ old('institusi_penyelenggara') }}">
             </div>
             <div class="form-group row col-md-11">
                 <label for="katogeri-event">Kategori Event</label>
-                <select type="text" class="form-select">
+                <select type="text" class="form-select" name="category_id" value="{{ old('category_id') }}">
                     <option value=""></option>
-                    <option value="seminar">Seminar</option>
-                    <option value="lomba">Lomba</option>
-                    <option value="konser">Konser</option>
-                    <option value="konferensi">Konferensi</option>
-                    <option value="workshop">Workshop</option>
+                    <option value="1">Seminar</option>
+                    <option value="2">Lomba</option>
+                    <option value="3">Konser</option>
+                    <option value="3">Konferensi</option>
+                    <option value="3">Workshop</option>
                 </select>
+                <!-- belum disambung dengan tabel kategori -->
             </div>
             <div class="form-group row col-md-11">
                 <label for="domisili-event">Domisili</label>
-                <select type="text" class="form-select">
+                <select type="text" class="form-select" name="domisili_id" value="{{ old('domisili_id') }}">
                     <option value=""></option>
-                    <option value="ciseke">Ciseke</option>
-                    <option value="caringin">Caringin</option>
-                    <option value="gkpn">GKPN</option>
-                    <option value="sayang">Sayang</option>
-                    <option value="cikuda">Cikuda</option>
+                    <option value="1">Ciseke</option>
+                    <option value="2">Caringin</option>
+                    <option value="3">GKPN</option>
+                    <option value="3">Sayang</option>
+                    <option value="3">Cikuda</option>
                 </select>
+                <!-- belum di sambung dengan tabel domisili -->
+            </div>
+            <div class="form-group row col-md-11">
+                <label for="captiom-event">Tanggal Event</label>
+                <input type="date" class="form-control" name="tgl_event" value="{{ old('tgl_event') }}">
             </div>
             <div class="form-group row col-md-11">
                 <label for="captiom-event">Caption</label>
@@ -72,6 +79,10 @@
                 <label for="bukti-event">Upload Bukti Pembayaran</label>
                 <input type="text" disabled class="form-control">
             </div>
+            @auth
+            <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+            @endauth
+            <input type="hidden" name="status_event" value="Diajukan">
             <div class="form-submit col-sm-11 py-3">
                 <button style="float: right" class="btn btn-primary" type="submit">Submit</button>
                 <br><br>

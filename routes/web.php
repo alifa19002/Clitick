@@ -7,7 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-// use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PengajuanController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -46,12 +46,6 @@ Route::get('/detail', function () {
     ]);
 });
 
-Route::get('/pengajuan', function () {
-    return view('/event/pengajuan', [
-        "title" => "Pengajuan Event"
-    ]);
-});
-
 Route::get('/myprofile', function () {
     return view('/user/profile1', [
         "title" => "My Profile"
@@ -70,4 +64,6 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
+Route::get('/pengajuan', [PengajuanController::class, 'index'])->middleware('auth');;
+Route::post('/pengajuan', [PengajuanController::class, 'store']);
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
