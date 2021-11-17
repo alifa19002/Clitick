@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\HomeController;
+// use App\Http\Controllers\AdminController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\EventController;
+// use App\Http\Controllers\DashboardController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -20,12 +21,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
-Route::get('/', function () {
-    return view('user/home', [
-        "title" => "Home",
-        "active" => 'home',
-    ]);
-});
+Route::get('/',  [HomeController::class, 'index']);
 
 Route::get('/about', function () {
     return view('about', [
@@ -63,6 +59,9 @@ Route::get('/myprofile', function () {
 });
 
 Route::get('/events', [EventController::class, 'index']);
+
+// Route::get('/admin/login', [AdminController::class, 'index'])->middleware('guest');
+// Route::post('/admin/login', [AdminController::class, 'authenticate']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);

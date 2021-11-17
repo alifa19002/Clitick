@@ -59,7 +59,12 @@
                 </div>
                 <div class="box-login mt-3">
                   <h6 class="disable">Password*</h6>
-                  <input type="password" name="password" class="form-control" id="Password" placeholder="Password" required>
+                  <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+                  @error('password')
+                  <div class="invalid-feedback">
+                      {{ $message }}
+                  </div>
+                  @enderror
                 </div>
 
                 {{-- <div class="box-login">

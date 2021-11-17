@@ -38,7 +38,21 @@
     </div>
     <br><br>
 
-    <div class="container bg-light col-md-3" style="text-align: center; padding: 10px">
+    <div class="container text-light mt-3">
+      <h4 class="text-center">EVENT TERBARU</h4>
+      <div class="row justify-content-center">
+        @foreach($latest_events as $events)
+        <div class="col-4 text-center mt-5">
+          <center><a><img src="images/poster-home.png"></a></center>
+          <p class="mt-2 pb-0 mb-0 px-3">{{ $events->nama_event }}</p>
+          <p class="mt-0 pt-0 mb-2">{{ $events->tgl_event }}</p>
+          <button class class="btn btn-secondary">Detail</button>
+        </div>
+        @endforeach
+      </div>
+    </div>
+
+    {{-- <div class="container bg-light col-md-3" style="text-align: center; padding: 10px">
       <center><a><img src="images/poster-home.png"></a></center>
       <p>Pensi Fest</p>
       <p>30/10/2021</p>
