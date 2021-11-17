@@ -15,7 +15,7 @@
     <script src="https://kit.fontawesome.com/fb85f1a3b6.js" crossorigin="anonymous"></script>
     <!-- My CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <title>Clitick</title>
+    <title>Clitick | {{ $title }}</title>
   </head>
   <body class="bg">
     <!-- navbar -->

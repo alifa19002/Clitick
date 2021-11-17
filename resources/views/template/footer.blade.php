@@ -60,10 +60,17 @@
                 <a href="#" class="text-dark">Event Terpopuler</a>
             </div>
 
+            @auth
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
                 <p>Tertarik mempublikasikan eventmu di Clitick?</p>
-                <a class="btn btn-primary tombol" href="/pengajuan">Ajukan Publikasi</a>
+                <a class="btn btn-primary tombol" href="/pengajuan">Ajukan Event</a>
             </div>
+            @else
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                <p>Tertarik mempublikasikan eventmu di Clitick?</p>
+                <a class="btn btn-primary tombol" href="/login">Ajukan Event</a>
+            </div>
+            @endauth
         </div>
     </div>
 </footer>

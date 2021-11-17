@@ -16,8 +16,12 @@ body{
 /* Login */
 .box-login input{
     background: none;
+    color: white;
 }
 
+.form-check input{
+    border-color: white;
+}
 
 /* detail event */
 .bt1{

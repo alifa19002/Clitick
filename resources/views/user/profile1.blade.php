@@ -29,8 +29,8 @@
             <div class="content" id="top-content">
                 <img src="images/foto-profil.png" width="280px" style="float:left" alt="">
                 <h5>Hi,</h5>
-                <h4>John Doe</h4>
-                <h6>johndoe@gmail.com</h6>
+                <h4>{{ auth()->user()->name }}</h4>
+                <h6>{{ auth()->user()->email }}</h6>
                 <a class="btn btn-primary" href="#">Edit Profil</a>
             </div>
             </div>
@@ -53,19 +53,19 @@
                     <div class="row justify-content" id="bottom-content">
                         <div class="col-6">
                             <h6>NAMA</h6>
-                            <p>John Doe</p>
+                            <p>{{ auth()->user()->name }}</p>
                         </div>
                         <div class="col-6">
                             <h6>JENIS KELAMIN</h6>
-                            <p>Laki-laki</p>
+                            <p>{{ auth()->user()->jk }}</p>
                         </div>
                         <div class="col-6">
                             <h6>EMAIL</h6>
-                            <p>johndoe@gmail.com</p>
+                            <p>{{ auth()->user()->email }}</p>
                         </div>
                         <div class="col-6">
                             <h6>NO TELEPON</h6>
-                            <p>+6281284109204</p>
+                            <p>{{ auth()->user()->no_telp }}</p>
                         </div>
                         <div class="col-6">
                             <h6>TANGGAL LAHIR</h6>
