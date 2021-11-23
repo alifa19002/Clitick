@@ -52,6 +52,24 @@ Route::get('/myprofile', function () {
     ]);
 });
 
+Route::get('/rekap', function () {
+    return view('/admin/rekap', [
+        "title" => "Rekap Event"
+    ]);
+});
+
+Route::get('/request', function () {
+    return view('/admin/request', [
+        "title" => "Request Event"
+    ]);
+});
+
+Route::get('/detailRequestEvent', function () {
+    return view('/admin/detail-request', [
+        "title" => "Detail Request Event"
+    ]);
+});
+
 Route::get('/events', [EventController::class, 'index']);
 
 // Route::get('/admin/login', [AdminController::class, 'index'])->middleware('guest');

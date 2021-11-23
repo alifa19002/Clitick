@@ -10,63 +10,56 @@
     
     <!-- My Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@300;500&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/fb85f1a3b6.js" crossorigin="anonymous"></script>
     <!-- My CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <title>CLITICK</title>
+    <title>CLITICK | {{ $title }}</title>
   </head>
-  <body class="bg">
+  <body>
     <!-- navbar -->
     @include('template.navbar')
-   
     
     <!-- Content -->
-    <div class="container text-white" >
-      <a><img src="images/logo2.png" height="200"></a>
-    </div>
-    <br><br><br>
-
-    <div class="container text-white">
-      <h4 style="text-align: center">MENGAPA LEBIH BAIK PUBLIKASI DI CLITICK?</h4>
-      <br>
-        <div class="container col-md-4 justify-content-center">
-          <p>&#10004; Publikasi tanpa persyaratan yang rumit</p>
-          <p>&#10004; Pembayaran yang mudah</p>
-       </div>
-    </div>
-    <br><br>
-
-    <div class="container text-light mt-3">
-      <h4 class="text-center">EVENT TERBARU</h4>
-      <div class="row justify-content-center">
-        @foreach($latest_events as $events)
-        <div class="col-4 text-center mt-5">
-          <center><a><img src="images/poster-home.png"></a></center>
-          <p class="mt-2 pb-0 mb-0 px-3">{{ $events->nama_event }}</p>
-          <p class="mt-0 pt-0 mb-2">{{ $events->tgl_event }}</p>
-          <button class class="btn btn-secondary">Detail</button>
+    <!-- User Profile -->
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <h2 style="text-align:center">Rekap Events</h2>
         </div>
-        @endforeach
-      </div>
+        <div class="row justify-content-md-center">
+            <table class="table table-striped table-bordered table-responsive-md" style="text-align:center">
+                <tr class="table-info">
+                    <th>No</th>
+                    <th>Nama Event</th>
+                    <th>Institusi Penyelenggara</th>
+                    <th>Kategori Event</th>
+                    <th>Tanggal Event</th>
+                    <th>Detail</th>
+                    <th>Action</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Mahitala</td>
+                    <td>Universitas Cigolendang</td>
+                    <td>Konser</td>
+                    <td>30 Desember 2021</td>
+                    <td>
+                        <a href="#" class="btn btn-primary tombol2">Detail</a>
+                    </td>
+                    <td>
+                        <a href="#" class="btn btn-warning tombol2">Edit</a>
+                        <a href="#" class="btn btn-danger tombol2">Hapus</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
 
-    {{-- <div class="container bg-light col-md-3" style="text-align: center; padding: 10px">
-      <center><a><img src="images/poster-home.png"></a></center>
-      <p>Pensi Fest</p>
-      <p>30/10/2021</p>
-      <button class class="btn btn-secondary">Detail</button>
-    </div>
-    <br>
 
     <!-- Footer -->
-    <footer class="footer bg-dark text-white d-flex py-2 align-items-center">
-      <div class="container">
-        <p style="text-align: center">@Copyright 2021</p>
-      </div>
-    </footer>
-   
+    @include('template.footer')
 
     <!-- Optional JavaScript; choose one of the two! -->
 

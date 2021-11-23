@@ -27,11 +27,13 @@
     <div class="container">
         <div class="row justify-content-md-center">
             <div class="content" id="top-content">
-                <img src="images/foto-profil.png" width="280px" style="float:left" alt="">
-                <h5>Hi,</h5>
-                <h4>{{ auth()->user()->name }}</h4>
-                <h6>{{ auth()->user()->email }}</h6>
-                <a class="btn btn-primary" href="#">Edit Profil</a>
+                <div class="image-wrapper"><img src="images/foto-profil.png" alt="foto profil"></div>
+                <span class="text">
+                    <h5>Hi,</h5>
+                    <h4>{{ auth()->user()->name }}</h4>
+                    <h6>{{ auth()->user()->email }}</h6>
+                    <a class="btn btn-primary" href="#">Edit Profil</a>
+                </span>
             </div>
             </div>
         </div>
@@ -51,23 +53,23 @@
             <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                     <div class="row justify-content" id="bottom-content">
-                        <div class="col-6">
+                        <div class="col-md-6">
                             <h6>NAMA</h6>
                             <p>{{ auth()->user()->name }}</p>
                         </div>
-                        <div class="col-6">
+                        <div class="col-md-6">
                             <h6>JENIS KELAMIN</h6>
                             <p>{{ auth()->user()->jk }}</p>
                         </div>
-                        <div class="col-6">
+                        <div class="col-md-6">
                             <h6>EMAIL</h6>
                             <p>{{ auth()->user()->email }}</p>
                         </div>
-                        <div class="col-6">
+                        <div class="col-md-6">
                             <h6>NO TELEPON</h6>
                             <p>{{ auth()->user()->no_telp }}</p>
                         </div>
-                        <div class="col-6">
+                        <div class="col-md-6">
                             <h6>TANGGAL LAHIR</h6>
                             <p>10/10/2001</p>
                         </div>

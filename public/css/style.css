@@ -98,6 +98,19 @@ body{
     /* padding-inline: 30px; */
 }
 
+.tombol2{
+    border-radius: 50px;
+    padding: 2px 8%;
+    text-decoration: none;
+    color: white;
+    opacity: 80%;
+}
+
+.tombol2:hover{
+    color: #181B32;
+    background-color: whitesmoke;
+}
+
 /* Footer */
 footer{
     position: sticky;
@@ -129,6 +142,22 @@ footer .mb-3 a{
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+    margin-top: 50px;
+    margin-bottom: 8px;
+}
+
+.container #top-content .image-wrapper{
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 50%;
+    float: left;
+    margin-right: 38px;
+}
+
+.container #top-content .image-wrapper img{
+    width: 100%;
+    height: auto;
 }
 
 .container .content img{
@@ -192,8 +221,8 @@ footer .mb-3 a{
 
 .container #bottom-content{
     margin-top: 35px;
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 10%;
+    margin-right: 10%;
     padding-left: 180px;
 }
 
@@ -333,4 +362,18 @@ footer .mb-3 a{
 .form-registration input {
     border-radius: 0;
     margin-bottom: -1px;
+}
+
+/* admin */
+.container .row h2{
+    margin: 50px 0 50px 0 ;
+    color: #4C4C4C;
+}
+
+.container table{
+    color: #4C4C4C;
+}
+
+a{
+    text-decoration: none;
 }
