@@ -46,10 +46,10 @@
                     <td>Konser</td>
                     <td>30 Desember 2021</td>
                     <td>
-                        <a href="#" class="btn btn-primary tombol2">Detail</a>
+                        <a href="/detail" class="btn btn-primary tombol2">Detail</a>
                     </td>
                     <td>
-                        <a href="#" class="btn btn-warning tombol2">Edit</a>
+                        <a href="/editevent" class="btn btn-warning tombol2">Edit</a>
                         <a href="#" class="btn btn-danger tombol2">Hapus</a>
                     </td>
                 </tr>

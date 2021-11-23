@@ -106,31 +106,6 @@
                       @enderror
                     </div>
 
-                    {{-- <div class="box-login">
-                      <h6 class="disable">Username*</h6>
-                      <input type="email" class="form-control" id="uname" placeholder="Username">
-                    </div>
-                    <div class="box-login mt-3">
-                      <h6 class="disable">Email address*</h6>
-                      <input type="password" class="form-control" id="input" placeholder="Enter email address">
-                    </div>
-                    <div class="box-login mt-3">
-                      <h6 class="disable">No. hp*</h6>
-                      <input type="password" class="form-control" id="Password2" placeholder="Enter number">
-                    </div>
-                    <div class="box-login mt-3">
-                      <h6 class="disable">Password*</h6>
-                      <input type="password" class="form-control" id="Password" placeholder="Password">
-                    </div>
-                    <div class="box-login mt-3">
-                      <h6 class="disable">Repeat Password*</h6>
-                      <input type="password" class="form-control" id="Password2" placeholder="Repeat password">
-                    </div>
-                    <div class="checkbox mt-3">
-                      <label>
-                        <input type="checkbox" value="remember-me"> I agree to term & conditions
-                      </label>
-                    </div> --}}
                     <button class="w-100 btn btn-lg btn-primary mt-4" type="submit">Register Account</button>
                     <small class="d-block text-center mt-3">Do you already have an account? <a href="/login">Log in</a> </small>
                   </form>

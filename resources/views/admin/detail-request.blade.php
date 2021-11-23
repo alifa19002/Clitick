@@ -54,7 +54,7 @@
                     </tr>
                     <tr>
                         <th>Deskripsi</th>
-                        <td><p>
+                        <td><p style="text-align: justify">
                             Mahitala adalah event tahunan Fakultas Seni Rupa dan Design Universitas Cigolendang. 
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
                             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
@@ -78,7 +78,7 @@
                     </tr>
                     <tr>
                         <th>Caption</th>
-                        <td><p>
+                        <td><p style="text-align: justify">
                             Halo! Tahun ini mahitala hadir kembali dengan tema seru.
                             Menghadirkan BTS sebagai bintang tamu, Mahitala akan diselenggarakan pada 30 Desember 2021.
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. 

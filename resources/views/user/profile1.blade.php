@@ -27,14 +27,11 @@
     <div class="container">
         <div class="row justify-content-md-center">
             <div class="content" id="top-content">
-                <div class="image-wrapper"><img src="images/foto-profil.png" alt="foto profil"></div>
-                <span class="text">
-                    <h5>Hi,</h5>
-                    <h4>{{ auth()->user()->name }}</h4>
-                    <h6>{{ auth()->user()->email }}</h6>
-                    <a class="btn btn-primary" href="#">Edit Profil</a>
-                </span>
-            </div>
+                <img src="images/foto-profil.png" width="280px" style="float:left" alt="">
+                <h5>Hi,</h5>
+                <h4>{{ auth()->user()->username }}</h4>
+                <h6>{{ auth()->user()->email }}</h6>
+                <a class="btn btn-primary" href="/editprofile">Edit Profil</a>
             </div>
         </div>
     </div>
@@ -53,25 +50,21 @@
             <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                     <div class="row justify-content" id="bottom-content">
-                        <div class="col-md-6">
+                        <div class="col-6">
                             <h6>NAMA</h6>
                             <p>{{ auth()->user()->name }}</p>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-6">
                             <h6>JENIS KELAMIN</h6>
                             <p>{{ auth()->user()->jk }}</p>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-6">
                             <h6>EMAIL</h6>
                             <p>{{ auth()->user()->email }}</p>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-6">
                             <h6>NO TELEPON</h6>
                             <p>{{ auth()->user()->no_telp }}</p>
-                        </div>
-                        <div class="col-md-6">
-                            <h6>TANGGAL LAHIR</h6>
-                            <p>10/10/2001</p>
                         </div>
                     </div>
                 </div>
@@ -79,9 +72,46 @@
                 <div class="tab-pane fade" id="pills-events" role="tabpanel" aria-labelledby="pills-profile-tab">
                     <!-- Event saya - kalo no data  -->
                     <div class="row justify-content-md-center">
-                        <div class="content" id="no-data">
+                        {{-- <div class="content" id="no-data">
                             <img src="images/no-data.png" width="280px" alt="">
                             <p>Sepertinya kamu belum mengajukan publikasi event nih!</p>
+                        </div> --}}
+
+                    <!-- Tinggal kasih conditions  -->
+
+                    <!-- Event saya - kalo ada data event -->
+                        <div class="content col-md-8 mb-3">
+                          <a style="float: right" href="/pengajuan"><i class="fas fa-plus-circle fa-lg"> </i> Add Event</a>
+                        </div>
+                        <div class="my col-md-8" id="data">
+                            <table class="table table-responsive-sm" style="text-align:center">
+                                <tr class="table-secondary">
+                                    <th>No</th>
+                                    <th>Nama Event</th>
+                                    <th>Penyelenggara</th>
+                                    <th>Kategori Event</th>
+                                    <th>Tanggal Event</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td><a style="color: #4C4C4C" href="/detail">Mahitala</a></td>
+                                    <td>Universitas Cigolendang</td>
+                                    <td>Konser</td>
+                                    <td>30 Desember 2021</td>
+                                    <td>
+                                        <a href="#" class="btn btn-primary tombol2">Accepted</a>
+                                    </td>
+                                    <td>
+                                        <a href="/editevent"><i class="far fa-edit fa-lg"></i></a>
+                                        <a href="#"><i class="far fa-trash-alt fa-lg"></i></a>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <hr>
+                            <h6 style="text-align: center">Click Nama Event for Detail</h6>
                         </div>
                     </div>
                 </div>
