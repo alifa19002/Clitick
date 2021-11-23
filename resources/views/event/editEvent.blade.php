@@ -15,7 +15,7 @@
     <script src="https://kit.fontawesome.com/fb85f1a3b6.js" crossorigin="anonymous"></script>
     <!-- My CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <title>CLITICK | {{ $title }}</title>
+    <title>Clitick | {{ $title }}</title>
   </head>
   <body class="bg">
     <!-- navbar -->
@@ -23,8 +23,8 @@
     
     <!-- Content -->
     <div class="container bg-dark text-white col-md-8 justify-content-center py-3 my-3 ">
-        <h4 style="text-align: center">Pengajuan Event</h4> <br>    
-        <form method="POST" action="/pengajuan" class="offset-md-1">
+        <h4 style="text-align: center">Form Edit Event</h4> <br>    
+        <form method="" action="" class="offset-md-1">
             @csrf
             <div class="form-group row col-md-11">
                 <label for="nama-event">Nama Event</label>
@@ -68,21 +68,11 @@
             </div>
             <div class="form-group row col-md-11">
                 <label for="captiom-event">Caption</label>
-                <textarea type="text" class="form-control">
-                </textarea>
+                <textarea type="text" class="form-control"></textarea>
             </div>
             <div class="form-group row col-md-11">
                 <div class="form-group row col-md-10">
                     <label for="upload-event">Upload Poster</label>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="form-group col-sm mt-4">
-                    <button style="float: right" class="btn btn-secondary" type=""><i class="far fa-folder-open"></i></button>
-                </div>
-            </div>
-            <div class="form-group row col-md-11">
-                <div class="form-group row col-md-10">
-                    <label for="bukti-event">Upload Bukti Pembayaran</label>
                     <input type="text" class="form-control">
                 </div>
                 <div class="form-group col-sm mt-4">
@@ -101,11 +91,13 @@
         </form>
     </div>
     <!-- Footer -->
-    <footer class="footer bg-dark text-white d-flex py-2 align-items-center">
+     <!-- Footer -->
+     @include('template.footer')
+    {{-- <footer class="footer bg-dark text-white d-flex py-2 align-items-center">
       <div class="container">
         <p style="text-align: center">@Copyright 2021</p>
       </div>
-    </footer>
+    </footer> --}}
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

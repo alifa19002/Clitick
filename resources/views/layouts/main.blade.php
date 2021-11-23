@@ -13,7 +13,7 @@
 
     <!-- My Styles -->
     <link rel="stylesheet" href="css/style.css">
-    <title>Clitick | {{ $title }}</title>
+    <title>CLITICK | {{ $title }}</title>
 </head>
 <body>
     @include('template.navbar')

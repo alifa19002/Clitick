@@ -39,6 +39,12 @@ Route::get('/informasi', function () {
     ]);
 });
 
+Route::get('/editevent', function () {
+    return view('/event/editEvent', [
+        "title" => "Edit Event"
+    ]);
+});
+
 Route::get('/detail', function () {
     return view('/event/detailEvent', [
         "title" => "Detail Event"
@@ -48,6 +54,30 @@ Route::get('/detail', function () {
 Route::get('/myprofile', function () {
     return view('/user/profile1', [
         "title" => "My Profile"
+    ]);
+});
+
+Route::get('/editprofile', function () {
+    return view('/user/editProfile', [
+        "title" => "Edit Profile"
+    ]);
+});
+
+Route::get('/rekap', function () {
+    return view('/admin/rekap', [
+        "title" => "Rekap Event"
+    ]);
+});
+
+Route::get('/request', function () {
+    return view('/admin/request', [
+        "title" => "Request Event"
+    ]);
+});
+
+Route::get('/detailRequestEvent', function () {
+    return view('/admin/detail-request', [
+        "title" => "Detail Request Event"
     ]);
 });
 

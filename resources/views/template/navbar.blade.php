@@ -27,15 +27,15 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Welcome back, {{ auth()->user()->name }}
+                      Welcome back, {{ auth()->user()->username }}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="/myprofile"><i class="bi bi-layout-text-sidebar-reverse"></i>My Profile</a></li>
+                      <li><a class="dropdown-item" href="/myprofile"><i class="fas fa-user"></i> My Profile</a></li>
                       <li><hr class="dropdown-divider"></li>
                       <li>
                           <form action="/logout" method="post">
                             @csrf
-                              <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right"></i>Logout</button>
+                              <button type="submit" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Logout</button>
                           </form>
                     </ul>
                 </li>
