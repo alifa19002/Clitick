@@ -3,7 +3,6 @@
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-// use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -53,9 +52,7 @@ Route::get('/myprofile', function () {
 });
 
 Route::get('/events', [EventController::class, 'index']);
-
-// Route::get('/admin/login', [AdminController::class, 'index'])->middleware('guest');
-// Route::post('/admin/login', [AdminController::class, 'authenticate']);
+Route::get('/events/{event:slug}', [EventController::class, 'show']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);

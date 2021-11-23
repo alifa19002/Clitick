@@ -19,6 +19,7 @@ class EventFactory extends Factory
             'tgl_event' => $this->faker->dateTimeThisMonth(),
             'deskripsi_event' => $this->faker->paragraph(),
             'status_event' => $this->faker->word(),
+            'slug' => $this->faker->slug(),
             'category_id' => mt_rand(1, 3),
             'user_id' => mt_rand(1, 3),
             'domisili_id' => mt_rand(1, 2)

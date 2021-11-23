@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('no_telp');
             $table->char('jk', 1);
+            $table->enum('is_admin', array('0', '1'))->default('0');
             $table->rememberToken();
             $table->timestamps();
         });

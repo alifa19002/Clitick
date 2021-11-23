@@ -43,7 +43,7 @@
     <div class="container text-md-left pt-4 pb-4">
         <div class="row text-md-left">
             <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-                <img src="images/logo.png" width="150px" alt="logo">
+                <img src="/images/logo.png" width="150px" alt="logo">
                 <p>Clitick adalah platform publikasi acara atau event yang mempermudah para pencari event  untuk mencari event dan penyelenggara event untuk mempublikasinya caranya</p>
             </div>
             <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">

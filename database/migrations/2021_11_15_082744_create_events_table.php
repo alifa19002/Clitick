@@ -23,6 +23,7 @@ class CreateEventsTable extends Migration
             $table->foreignId('category_id');
             $table->foreignId('user_id');
             $table->foreignId('domisili_id');
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }

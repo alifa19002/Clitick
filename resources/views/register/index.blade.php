@@ -105,6 +105,7 @@
                       </div>
                       @enderror
                     </div>
+                    <input type="hidden" name="is_admin" id="is_admin" value="0" required>
 
                     {{-- <div class="box-login">
                       <h6 class="disable">Username*</h6>

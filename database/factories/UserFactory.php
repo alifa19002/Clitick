@@ -23,6 +23,7 @@ class UserFactory extends Factory
             'no_telp' => $this->faker->phoneNumber(),
             'jk' => $this->faker->randomLetter(['l', 'p']),
             'remember_token' => Str::random(10),
+            'is_admin' => 1,
         ];
     }
 

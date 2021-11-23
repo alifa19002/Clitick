@@ -8,6 +8,7 @@ use App\Models\Event;
 use App\Models\Category;
 use App\Models\Domisili;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,6 +21,16 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         User::factory(3)->create();
+
+        User::create([
+            'name' => 'admin',
+            'username' => 'admin1',
+            'email' => 'admin@mail.com',
+            'password' => Hash::make('admin123'),
+            'is_admin' => '1',
+            'no_telp' => '972892672872',
+            'jk' => 'P',
+        ]);
 
         Category::create([
             'nama_kategori' => 'Webinar'
