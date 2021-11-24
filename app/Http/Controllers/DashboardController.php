@@ -11,6 +11,6 @@ class DashboardController extends Controller
     {
         $title = "Dashboard Admin";
         $events = Event::all();
-        return view('dashboard.index', compact('title', 'events'));
+        return view('admin.rekap', compact(['title', 'events']));
     }
 }

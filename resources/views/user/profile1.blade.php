@@ -94,8 +94,9 @@
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
+                                @foreach($my_events as $event)
                                 <tr>
-                                    <td>1</td>
+                                    <td>{{ $event->id }}</td>
                                     <td><a style="color: #4C4C4C" href="/detail">Mahitala</a></td>
                                     <td>Universitas Cigolendang</td>
                                     <td>Konser</td>
@@ -108,6 +109,7 @@
                                         <a href="#"><i class="far fa-trash-alt fa-lg"></i></a>
                                     </td>
                                 </tr>
+                                @endforeach
                             </table>
                             
                             <hr>

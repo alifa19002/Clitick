@@ -39,12 +39,13 @@
                     <th>Detail</th>
                     <th>Action</th>
                 </tr>
+                @foreach($events as $event)
                 <tr>
-                    <td>1</td>
-                    <td>Mahitala</td>
-                    <td>Universitas Cigolendang</td>
-                    <td>Konser</td>
-                    <td>30 Desember 2021</td>
+                    <td>{{ $event->id }}</td>
+                    <td>{{ $event->nama_event }}</td>
+                    <td>{{ $event->institusi_penyelenggara }}</td>
+                    <td>{{ $event->category->nama_kategori }}</td>
+                    <td>{{ $event->tgl_event }}</td>
                     <td>
                         <a href="/detail" class="btn btn-primary tombol2">Detail</a>
                     </td>
@@ -53,6 +54,7 @@
                         <a href="#" class="btn btn-danger tombol2">Hapus</a>
                     </td>
                 </tr>
+                @endforeach
             </table>
         </div>
     </div>

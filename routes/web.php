@@ -1,11 +1,15 @@
 <?php
 
+use App\Models\User;
+use App\Models\Event;
 use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PengajuanController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -51,10 +55,13 @@ Route::get('/detail', function () {
     ]);
 });
 
-Route::get('/myprofile', function () {
-    return view('/user/profile1', [
-        "title" => "My Profile"
-    ]);
+Route::get('/myprofile', function ($id) {
+    $title = "My Profile";
+    $id = User::where('id', $id)->first()->id;
+    $user_id = User::where('id', $id);
+    $where = array('id' => $id);
+    $my_events = Event::where('id', $id)->get();
+    return view('/user/profile1', compact(['title', 'user_id', 'my_events']));
 });
 
 Route::get('/editprofile', function () {
@@ -91,6 +98,6 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/pengajuan', [PengajuanController::class, 'index'])->middleware('auth');;
+Route::get('/pengajuan', [PengajuanController::class, 'index'])->middleware('auth');
 Route::post('/pengajuan', [PengajuanController::class, 'store']);
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
