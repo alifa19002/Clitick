@@ -60,7 +60,7 @@ Route::get('/profile/{username}', function ($username) {
     $username = User::where('username', $username)->first()->username;
     $id = User::where('username', $username)->first()->id;
     $my_events = Event::where('user_id', $id)->get();
-    return view('/user/profile1', compact(['title', 'my_events']));
+    return view('/user/profile', compact(['title', 'my_events']));
 });
 
 Route::get('/editprofile', function () {
