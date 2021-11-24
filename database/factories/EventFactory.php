@@ -21,7 +21,7 @@ class EventFactory extends Factory
             'status_event' => $this->faker->word(),
             'slug' => $this->faker->slug(),
             'category_id' => mt_rand(1, 3),
-            'user_id' => mt_rand(1, 3),
+            'user_id' => mt_rand(1, 4),
             'domisili_id' => mt_rand(1, 2)
         ];
     }

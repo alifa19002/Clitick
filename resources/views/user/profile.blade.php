@@ -15,7 +15,7 @@
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/fb85f1a3b6.js" crossorigin="anonymous"></script>
     <!-- My CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" >
     <title>CLITICK | {{ $title }}</title>
   </head>
   <body>
@@ -27,7 +27,7 @@
     <div class="container">
         <div class="row justify-content-md-center">
             <div class="content" id="top-content">
-                <img src="images/foto-profil.png" width="280px" style="float:left" alt="">
+                <img src="{{ asset('images/foto-profil.png') }}" width="280px" style="float:left" alt="">
                 <h5>Hi,</h5>
                 <h4>{{ auth()->user()->username }}</h4>
                 <h6>{{ auth()->user()->email }}</h6>
@@ -84,6 +84,7 @@
                           <a style="float: right" href="/pengajuan"><i class="fas fa-plus-circle fa-lg"> </i> Add Event</a>
                         </div>
                         <div class="my col-md-8" id="data">
+                            @if($my_events->count())
                             <table class="table table-responsive-sm" style="text-align:center">
                                 <tr class="table-secondary">
                                     <th>No</th>
@@ -111,9 +112,12 @@
                                 </tr>
                                 @endforeach
                             </table>
-                            
                             <hr>
                             <h6 style="text-align: center">Click Nama Event for Detail</h6>
+                            @else
+                            {{-- masukin gambar yang no data --}}
+                            <p>Sepertinya kamu belum pernah mengajukan event nih!</p>
+                            @endif
                         </div>
                     </div>
                 </div>

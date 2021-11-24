@@ -55,13 +55,12 @@ Route::get('/detail', function () {
     ]);
 });
 
-Route::get('/myprofile', function ($id) {
+Route::get('/profile/{username}', function ($username) {
     $title = "My Profile";
-    $id = User::where('id', $id)->first()->id;
-    $user_id = User::where('id', $id);
-    $where = array('id' => $id);
-    $my_events = Event::where('id', $id)->get();
-    return view('/user/profile1', compact(['title', 'user_id', 'my_events']));
+    $username = User::where('username', $username)->first()->username;
+    $id = User::where('username', $username)->first()->id;
+    $my_events = Event::where('user_id', $id)->get();
+    return view('/user/profile1', compact(['title', 'my_events']));
 });
 
 Route::get('/editprofile', function () {
