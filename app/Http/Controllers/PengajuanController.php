@@ -3,26 +3,35 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 use App\Models\Event;
+use App\Models\Category;
+use App\Models\Domisili;
 
 class PengajuanController extends Controller
 {
     public function index()
     {
         return view('event.pengajuan', [
-            "title" => "Pengajuan Event"
+            "title" => "Pengajuan Event",
+            'active' => 'categories',
+            'categories' => Category::all(),
+            'domisili' => Domisili::all()
         ]);
     }
     public function store(Request $request)
     {
-        // $validatedData = $request->validate([
-        //     'name' => 'required|max:255',
-        //     'username' => ['required', 'min:3', 'max:255', 'unique:users'],
-        //     'email' => 'required|email:dns|unique:users',
-        //     'no_telp' => 'required|numeric|digits_between:10,14',
-        //     'jk' => 'required|max:1',
-        //     'password' => 'required|min:5|max:255'
-        // ]);
+            $uploadPath = public_path('poster');
+
+            if(!File::isDirectory($uploadPath)) {
+                File::makeDirectory($uploadPath, 0755, true, true);
+            }
+            if(($file = $request->file('poster')) == NULL)
+                echo "gada file";
+            else
+            $uniqueFileName = uniqid() . $request->nama_event . '.' . $file->getClientOriginalExtension();
+            $file->move($uploadPath, $uniqueFileName);
         Event::create([
             'nama_event' => request('nama_event'),
             'institusi_penyelenggara' => request('institusi_penyelenggara'),
@@ -31,7 +40,9 @@ class PengajuanController extends Controller
             'status_event' => request('status_event'),
             'category_id' => request('category_id'),
             'user_id' => request('user_id'),
-            'domisili_id' => request('domisili_id')
+            'domisili_id' => request('domisili_id'),
+            'poster' => $uniqueFileName,
+            'slug' => Str::replace(' ', '-', Str::lower(request('nama_event')))
         ]);
         
         //User::create($validatedData);

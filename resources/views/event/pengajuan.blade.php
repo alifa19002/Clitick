@@ -24,7 +24,7 @@
     <!-- Content -->
     <div class="container bg-dark text-white col-md-8 justify-content-center py-3 my-3 ">
         <h4 style="text-align: center">Pengajuan Event</h4> <br>    
-        <form method="POST" action="/pengajuan" class="offset-md-1">
+        <form method="POST" action="/pengajuan" class="offset-md-1" enctype="multipart/form-data">
             @csrf
             <div class="form-group row col-md-11">
                 <label for="nama-event">Nama Event</label>
@@ -42,11 +42,9 @@
                 <label for="katogeri-event">Kategori Event</label>
                 <select type="text" class="form-select" name="category_id" value="{{ old('category_id') }}">
                     <option value=""></option>
-                    <option value="1">Seminar</option>
-                    <option value="2">Lomba</option>
-                    <option value="3">Konser</option>
-                    <option value="3">Konferensi</option>
-                    <option value="3">Workshop</option>
+                    @foreach ($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->nama_kategori }}</option>
+                    @endforeach
                 </select>
                 <!-- belum disambung dengan tabel kategori -->
             </div>
@@ -54,11 +52,9 @@
                 <label for="domisili-event">Domisili</label>
                 <select type="text" class="form-select" name="domisili_id" value="{{ old('domisili_id') }}">
                     <option value=""></option>
-                    <option value="1">Ciseke</option>
-                    <option value="2">Caringin</option>
-                    <option value="3">GKPN</option>
-                    <option value="3">Sayang</option>
-                    <option value="3">Cikuda</option>
+                    @foreach ($domisili as $domisilis)
+                    <option value="{{ $domisilis->id }}">{{ $domisilis->nama_domisili }}</option>
+                    @endforeach
                 </select>
                 <!-- belum di sambung dengan tabel domisili -->
             </div>
@@ -74,13 +70,13 @@
             <div class="form-group row col-md-11">
                 <div class="form-group row col-md-10">
                     <label for="upload-event">Upload Poster</label>
-                    <input type="text" class="form-control">
+                    <input type="file" class="form-control" name="poster">
                 </div>
-                <div class="form-group col-sm mt-4">
-                    <button style="float: right" class="btn btn-secondary" type=""><i class="far fa-folder-open"></i></button>
-                </div>
+                <!-- <div class="form-group col-sm mt-4">
+                    <button style="float: right" class="btn btn-secondary" type="" ><i class="far fa-folder-open"></i></button>
+                </div> -->
             </div>
-            <div class="form-group row col-md-11">
+            <!-- <div class="form-group row col-md-11">
                 <div class="form-group row col-md-10">
                     <label for="bukti-event">Upload Bukti Pembayaran</label>
                     <input type="text" class="form-control">
@@ -88,7 +84,7 @@
                 <div class="form-group col-sm mt-4">
                     <button style="float: right" class="btn btn-secondary" type=""><i class="far fa-folder-open"></i></button>
                 </div>
-            </div>
+            </div> -->
             @auth
             <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
             @endauth
