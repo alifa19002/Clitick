@@ -97,11 +97,12 @@
         </form>
     </div>
     <!-- Footer -->
-    <footer class="footer bg-dark text-white d-flex py-2 align-items-center">
+    @include('template.footer')
+    <!-- <footer class="footer bg-dark text-white d-flex py-2 align-items-center">
       <div class="container">
         <p style="text-align: center">@Copyright 2021</p>
       </div>
-    </footer>
+    </footer> -->
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

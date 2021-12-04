@@ -36,7 +36,7 @@
                     <th>Institusi Penyelenggara</th>
                     <th>Kategori Event</th>
                     <th>Tanggal Event</th>
-                    <th>Detail</th>
+                    <!-- <th>Detail</th> -->
                     <th>Action</th>
                 </tr>
                 @foreach($events as $event)
@@ -46,12 +46,13 @@
                     <td>{{ $event->institusi_penyelenggara }}</td>
                     <td>{{ $event->category->nama_kategori }}</td>
                     <td>{{ $event->tgl_event }}</td>
+                    <!-- <td>
+                        <a href="/detail" class="btn btn-primary tombol2" style="width:110%">Detail</a>
+                    </td> -->
                     <td>
-                        <a href="/detail" class="btn btn-primary tombol2">Detail</a>
-                    </td>
-                    <td>
-                        <a href="/editevent" class="btn btn-warning tombol2">Edit</a>
-                        <a href="#" class="btn btn-danger tombol2">Hapus</a>
+                    <a href="/detail" class="btn btn-primary tombol2" style="width:50%">Detail</a>
+                        <a href="/editevent" class="btn btn-warning tombol2" style="width:50%">Edit</a>
+                        <a href="#" class="btn btn-danger tombol2" style="width:50%">Hapus</a>
                     </td>
                 </tr>
                 @endforeach
