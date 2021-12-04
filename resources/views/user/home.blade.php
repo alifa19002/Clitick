@@ -40,36 +40,34 @@
     </div>
     <br><br>
 
-    <!-- Caousel Start -->
-    <div class="col-12 text-center mb-5 text-light mt-3">
-    <p class="h1">EVENT TERBARU</p>
-    <div class="gerak">
-    @foreach($latest_events as $events)
-      <div class="topik">
-      <img src="images/poster-home.png">
-      <p class="mt-2 pb-0 mb-0 px-3">{{ $events->nama_event }}</p>
-          <p class="mt-0 pt-0 mb-2">{{ $events->tgl_event }}</p>
-          <button class class="btn btn-secondary">Detail</button>
+    <!-- Carousel Start -->
+    <h3 style="color: white; text-align: center">EVENT TERBARU</h3>
+      <div class="container">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            @foreach($latest_events as $key => $events)
+            <div class="carousel-item {{ $key == 0 ? 'active : ' : ''}}">
+              <a href="/events/{{ $events->slug }}"><img src="{{ asset('poster/' . $events->poster) }}" width="400px" alt="POSTER"></a>
+              <div class="car-caption">
+                <a style="opacity: 90%" class="btn btn-primary tombol" href="/events/{{ $events->slug }}">
+                  <h5 style="color: white" class="mt-2 pb-0 mb-0">{{ $events->nama_event }}</h5><h6 style="color: white" class="mt-0 pt-0 mb-2">{{ $events->tgl_event }}</h6>
+                </a>
+              </div>
+            </div>
+            @endforeach
+          </div>
+          {{-- <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a> --}}
+        </div>
       </div>
-      @endforeach
-    </div>
-  </div>
-    <!-- Caousel End -->
 
-  <script type="text/javascript">
-    $(document).ready(function()
-    {
-      $('.gerak').slick();
-    });
-  </script>
-
-    <div class="container bg-light col-md-3" style="text-align: center; padding: 10px">
-      <center><a><img src="images/poster-home.png"></a></center>
-      <p>Pensi Fest</p>
-      <p>30/10/2021</p>
-      <button class class="btn btn-secondary">Detail</button>
-    </div>
-    <br>
+    <!-- Carousel End -->
 
     <!-- Footer -->
     @include('template.footer')  

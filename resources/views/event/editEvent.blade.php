@@ -30,10 +30,10 @@
                 <label for="nama-event">Nama Event</label>
                 <input type="text" class="form-control" name="nama_event" value="{{ old('nama_event') }}">
             </div>
-            <div class="form-group row col-md-11">
+            {{-- <div class="form-group row col-md-11">
                 <label for="deskripsi-event">Deskripsi Event</label>
                 <input type="text" class="form-control" name="deskripsi_event" value="{{ old('deskripsi_event') }}">
-            </div>
+            </div> --}}
             <div class="form-group row col-md-11">
                 <label for="institusi-event">Institusi Penyelenggara</label>
                 <input type="text" class="form-control" name="institusi_penyelenggara" value="{{ old('institusi_penyelenggara') }}">
@@ -68,15 +68,12 @@
             </div>
             <div class="form-group row col-md-11">
                 <label for="captiom-event">Caption</label>
-                <textarea type="text" class="form-control"></textarea>
+                <textarea type="text" class="form-control" name="deskripsi_event" value="{{ old('deskripsi_event') }}"></textarea>
             </div>
             <div class="form-group row col-md-11">
                 <div class="form-group row col-md-10">
                     <label for="upload-event">Upload Poster</label>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="form-group col-sm mt-4">
-                    <button style="float: right" class="btn btn-secondary" type=""><i class="far fa-folder-open"></i></button>
+                    <input type="file" class="form-control" name="poster">
                 </div>
             </div>
             @auth
@@ -90,7 +87,6 @@
 
         </form>
     </div>
-    <!-- Footer -->
      <!-- Footer -->
      @include('template.footer')
     {{-- <footer class="footer bg-dark text-white d-flex py-2 align-items-center">

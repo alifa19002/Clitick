@@ -31,6 +31,7 @@
         </div>
         <div class="row justify-content-md-center">
             <a href="/dashboard/events/create" class="btn btn-primary mb-3">Add new event</a>
+            <a href="/dashboard/events/request" class="btn btn-secondary mb-3">Requested Event</a>
             <table class="table table-striped table-bordered table-responsive-md" style="text-align:center">
                 <tr class="table-info">
                     <th>No</th>

@@ -28,7 +28,7 @@ body{
 
 /* detail event */
 .bt1{
-    width: 80%;
+    width: 70%;
 }
 
 .desc {
@@ -52,7 +52,10 @@ body{
 /* Navbar */
 .navbar{
     position: sticky;
+    /* position: fixed; */
     top: 0;
+    width: 100%;
+    z-index: 1;
     background-color: white;
 }
 .navbar-nav{
@@ -394,3 +397,20 @@ footer .mb-3 a{
 a{
     text-decoration: none;
 }
+
+/* carousel  */
+
+.carousel-item{
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+}
+
+/* Penomoran otomatis pada baris */
+.css-serial {
+    counter-reset: serial-number;  /* Atur penomoran ke 0 */
+  }
+  .css-serial td:first-child:before {
+    counter-increment: serial-number;  /* Kenaikan penomoran */
+    content: counter(serial-number);  /* Tampilan counter */
+  }

@@ -36,9 +36,11 @@
         </div>
         @endif
         
+        <a style="float: right" href="/dashboard/events/create" class="btn btn-primary mb-3">Add new event</a>
+        <a href="/dashboard/request" class="btn btn-success mb-3">Requested Event</a>
         <div class="row justify-content-md-center">
-            <a href="/dashboard/events/create" class="btn btn-primary mb-3">Add new event</a>
-            <table class="table table-striped table-bordered table-responsive-md" style="text-align:center">
+            @if($events->count())
+            <table class="table table-striped table-bordered table-responsive-md css-serial" style="text-align:center">
                 <tr class="table-info">
                     <th>No</th>
                     <th>Nama Event</th>
@@ -50,7 +52,7 @@
                 </tr>
                 @foreach($events as $event)
                 <tr>
-                    <td>{{ $event->id }}</td>
+                    <td></td>
                     <td>{{ $event->nama_event }}</td>
                     <td>{{ $event->institusi_penyelenggara }}</td>
                     <td>{{ $event->category->nama_kategori }}</td>
@@ -69,6 +71,12 @@
                 </tr>
                 @endforeach
             </table>
+            @else
+            <div class="content" id="no-data">
+                <img src="/images/no-data.png" width="280px" alt="no-data">
+                <p>Sepertinya belum ada yang mengajukan publikasi event.</p>
+            </div>
+            @endif
         </div>
     </div>
 

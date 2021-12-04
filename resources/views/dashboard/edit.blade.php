@@ -10,30 +10,27 @@
     
     <!-- My Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@300;500&display=swap" rel="stylesheet">
+    {{-- <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@300;500&display=swap" rel="stylesheet"> --}}
     
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/fb85f1a3b6.js" crossorigin="anonymous"></script>
     <!-- My CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" >
+    <link rel="stylesheet" type="text/css" href="{{ asset("css/style.css") }} " >
     <title>CLITICK | {{ $title }}</title>
-
-    <style>
-        * {
-            color: #000;
-        }
-    </style>
   </head>
   <body>
-    @if (Auth::user()->is_admin == 1)
-    <!-- navbar -->
+      <!-- navbar -->
     @include('template.navbar')
+
+    @if (Auth::user()->is_admin == 1)
+
     
-    <div class="col-lg-8">
-        <form method="post" action="/dashboard/events/{{ $event->slug }}" class="mb-5" enctype="multipart/form-data">
+    <div class="container bg-dark text-white col-md-8 justify-content-center py-3 my-3 ">
+        <h4 style="text-align: center; color: white">Form Edit Event</h4> <br> 
+        <form method="post" action="/dashboard/events/{{ $event->slug }}" class="offset-md-1" enctype="multipart/form-data">
             @method('put')
             @csrf
-            <div class="mb-3">
+            <div class="form-group row col-md-11">
               <label for="nama_event" class="form-label">Nama Event</label>
               <input type="text" class="form-control @error('nama_event') is-invalid @enderror" id="nama_event" name="nama_event" required autofocus value="{{ old('nama_event', $event->nama_event) }}">
               @error('nama_event')
@@ -42,7 +39,7 @@
                   </div>
               @enderror
             </div>
-            <div class="mb-3">
+            <div class="form-group row col-md-11">
                 <label for="slug" class="form-label">Slug</label>
                 <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" required value="{{ old('slug', $event->slug) }}">
                 @error('slug')
@@ -51,7 +48,7 @@
                 </div>
             @enderror
             </div>
-            <div class="mb-3">
+            <div class="form-group row col-md-11">
                 <label for="institusi_penyelenggara" class="form-label">Institusi Penyelenggara</label>
                 <input type="text" class="form-control @error('institusi_penyelenggara') is-invalid @enderror" id="institusi_penyelenggara" name="institusi_penyelenggara" required value="{{ old('institusi_penyelenggara', $event->institusi_penyelenggara) }}">
                 @error('institusi_penyelenggara')
@@ -60,9 +57,9 @@
                 </div>
                 @enderror
             </div>
-            <div class="mb-3">
+            <div class="form-group row col-md-11">
                 <label for="category" class="form-label">Category</label>
-                <select class="form-select" name="category_id"">
+                <select class="form-select" name="category_id">
                     @foreach($categories as $category)
                     @if (old('category_id', $event->category_id) == $category->id)
                     <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
@@ -72,9 +69,9 @@
                     @endforeach
                 </select>
             </div>
-            <div class="mb-3">
+            <div class="form-group row col-md-11">
                 <label for="domisili" class="form-label">Domisili</label>
-                <select class="form-select" name="domisili_id"">
+                <select class="form-select" name="domisili_id">
                     @foreach($domisilis as $domisili)
                     @if (old('domisili_id', $event->domisili_id) == $domisili->id)
                     <option value="{{ $domisili->id }}" selected>{{ $domisili->name }}</option>
@@ -84,7 +81,7 @@
                     @endforeach
                 </select>
             </div>
-            <div class="mb-3">
+            <div class="form-group row col-md-11">
                 <label for="tgl_event" class="form-label">Tanggal Event</label>
                 <input type="date" class="form-control @error('tgl_event') is-invalid @enderror" id="tgl_event" name="tgl_event" required value="{{ old('tgl_event', $event->tgl_event) }}">
                 @error('tgl_event')
@@ -93,7 +90,7 @@
                 </div>
                 @enderror
             </div>
-            <div class="mb-3">
+            <div class="form-group row col-md-11">
                 <label for="deskripsi_event" class="form-label">Deskripsi event</label>
                 <input type="text" class="form-control @error('deskripsi_event') is-invalid @enderror" id="deskripsi_event" name="deskripsi_event" required value="{{ old('deskripsi_event', $event->deskripsi_event) }}">
                 @error('deskripsi_event')
@@ -126,6 +123,7 @@
             <button type="submit" class="btn btn-primary">Update Event</button>
           </form>
     </div>
+
 
     <!-- Footer -->
     @include('template.footer')

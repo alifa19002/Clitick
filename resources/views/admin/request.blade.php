@@ -10,12 +10,12 @@
     
     <!-- My Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@300;500&display=swap" rel="stylesheet">
+    {{-- <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@300;500&display=swap" rel="stylesheet"> --}}
     
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/fb85f1a3b6.js" crossorigin="anonymous"></script>
     <!-- My CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ asset("css/style.css") }}">
     <title>CLITICK | {{ $title }}</title>
   </head>
   <body>
@@ -29,7 +29,8 @@
             <h2 style="text-align:center">Request Events</h2>
         </div>
         <div class="row justify-content-md-center">
-            <table class="table table-striped table-bordered table-responsive-md" style="text-align:center">
+            @if($events->count())
+            <table class="table table-striped table-bordered table-responsive-md css-serial" style="text-align:center">
                 <tr class="table-warning">
                     <th>No</th>
                     <th>Nama Event</th>
@@ -41,17 +42,24 @@
                 </tr>
                 @foreach($events as $event)
                 <tr>
-                    <td>{{ $event->id }}</td>
+                    <td></td>
                     <td>{{ $event->nama_event }}</td>
                     <td>{{ $event->institusi_penyelenggara }}</td>
                     <td>{{ $event->tgl_event }}</td>
                     <td>{{ $event->status_event }}</td>
+                    <td></td>
                     <td>
                         <a href="/dashboard/events/{{ $event->slug }}" class="btn btn-primary tombol2">Detail</a>
                     </td>
                 </tr>
                 @endforeach
             </table>
+            @else
+            <div class="content" id="no-data">
+                <img src="/images/no-data.png" width="280px" alt="no-data">
+                <p>Sepertinya belum ada yang mengajukan publikasi event.</p>
+            </div>
+            @endif
         </div>
     </div>
 
