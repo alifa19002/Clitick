@@ -9,7 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardEventController;
 use App\Http\Controllers\PengajuanController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -99,4 +99,12 @@ Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/pengajuan', [PengajuanController::class, 'index'])->middleware('auth');
 Route::post('/pengajuan', [PengajuanController::class, 'store']);
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+
+Route::get('/dashboard/request', function () {
+    $title = "Dashboard Admin";
+    $events = Event::where('status_event', 'requested')->get();
+    return view('admin.request', compact(['title', 'events']));
+})->middleware('auth');
+
+Route::get('/dashboard/events/checkSlug', [DashboardEventController::class, 'checkSlug'])->middleware('auth');
+Route::resource('/dashboard/events', DashboardEventController::class)->middleware('auth');

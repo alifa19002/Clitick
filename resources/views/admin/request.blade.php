@@ -39,17 +39,18 @@
                     <th>Status Pembayaran</th>
                     <th>Detail</th>
                 </tr>
+                @foreach($events as $event)
                 <tr>
-                    <td>1</td>
-                    <td>Mahitala</td>
-                    <td>Universitas Cigolendang</td>
-                    <td>30 Desember 2021</td>
-                    <td>Diterima</td>
-                    <td>Sudah Dibayar</td>
+                    <td>{{ $event->id }}</td>
+                    <td>{{ $event->nama_event }}</td>
+                    <td>{{ $event->institusi_penyelenggara }}</td>
+                    <td>{{ $event->tgl_event }}</td>
+                    <td>{{ $event->status_event }}</td>
                     <td>
-                        <a href="/detailRequestEvent" class="btn btn-primary tombol2">Detail</a>
+                        <a href="/dashboard/events/{{ $event->slug }}" class="btn btn-primary tombol2">Detail</a>
                     </td>
                 </tr>
+                @endforeach
             </table>
         </div>
     </div>
