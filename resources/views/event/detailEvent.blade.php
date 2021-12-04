@@ -30,7 +30,7 @@
     <div class="container">
         <div class="row justify-content-md-center" id="poster">
             <div class="col-md-5 text-center">
-                <img src="/poster/{{ $event->poster }}" width="80%" alt="contoh">
+                <img src="{{ asset('storage/' . $event->poster) }}" width="80%" alt="contoh">
                 <button class="bt1 btn btn-success mt-3 " type="submit">JOIN THIS EVENT!</button>
             </div>
             <div class="desc col-md-5" style="color: white">

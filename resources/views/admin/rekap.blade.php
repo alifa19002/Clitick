@@ -15,10 +15,11 @@
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/fb85f1a3b6.js" crossorigin="anonymous"></script>
     <!-- My CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" >
     <title>CLITICK | {{ $title }}</title>
   </head>
   <body>
+    @if (Auth::user()->is_admin == 1)
     <!-- navbar -->
     @include('template.navbar')
     
@@ -29,6 +30,7 @@
             <h2 style="text-align:center">Rekap Events</h2>
         </div>
         <div class="row justify-content-md-center">
+            <a href="/dashboard/events/create" class="btn btn-primary mb-3">Add new event</a>
             <table class="table table-striped table-bordered table-responsive-md" style="text-align:center">
                 <tr class="table-info">
                     <th>No</th>
@@ -50,9 +52,16 @@
                         <a href="/detail" class="btn btn-primary tombol2" style="width:110%">Detail</a>
                     </td> -->
                     <td>
-                    <a href="/detail" class="btn btn-primary tombol2" style="width:50%">Detail</a>
-                        <a href="/editevent" class="btn btn-warning tombol2" style="width:50%">Edit</a>
-                        <a href="#" class="btn btn-danger tombol2" style="width:50%">Hapus</a>
+                        <a href="/dashboard/events/{{ $event->slug }}" class="btn btn-primary tombol2">Detail</a>
+                    </td>
+                    <td>
+                        <a href="/dashboard/events/{{ $event->slug }}/edit" class="btn btn-warning tombol2">Edit</a>
+                        <form action="/dashboard/events/{{ $event->slug }}" method="post" class="d-inline">
+                            @method('delete')
+                            @csrf
+                            <button class="btn btn-danger border-0 tombol2" onclick="return confirm('Apakah Anda yakin ingin menghapus data?')">Hapus</button>
+                            </form>
+                        {{-- <a href="#" class="btn btn-danger tombol2">Hapus</a> --}}
                     </td>
                 </tr>
                 @endforeach
@@ -74,5 +83,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     -->
+    @endif
   </body>
 </html>
