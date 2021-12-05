@@ -23,17 +23,13 @@
     
     <!-- Content -->
     <div class="container bg-dark text-white col-md-8 justify-content-center py-3 my-3 ">
-<<<<<<< HEAD
-        
-=======
->>>>>>> b3b0c818144be3271a9501e82b9a5eb30421a87a
         <h4 style="text-align: center">Pembayaran Event</h4> <br>    
         <form method="POST" action="/pembayaran" class="offset-md-1" enctype="multipart/form-data">
             @csrf
             <input type="hidden" name="event_id" id="event_id" value={{ $events->id }}>
             <div class="form-group row col-md-11">
                 <label for="metode_pembayaran">Metode Pembayaran</label>
-                <input type="text" class="form-control" name="metode_pembayaran" value="metode_pembayaran">
+                <input type="text" class="form-control" name="metode_pembayaran" value="{{ old('metode_pembayaran') }}">
             </div>
             
             <div class="form-group row col-md-11">
@@ -54,15 +50,10 @@
                 </div> -->
             </div>
             <!-- 66 -->
-<<<<<<< HEAD
-            @foreach($events as $event)
-            <input type="hidden" name="id_event" value="{{ $events->id }}">
-            @endforeach
-=======
-            {{-- @foreach($events as event)
-            <input type="hidden" name="id_event" value="{{ event->id }}">
+            {{-- @foreach($events as $event)
+                <input type="hidden" name="id_event" value="{{ event->id }}">
             @endforeach --}}
->>>>>>> b3b0c818144be3271a9501e82b9a5eb30421a87a
+            
             <div class="form-submit col-sm-11 py-3">
                 <button style="float: right" class="btn btn-primary" type="submit">Submit</button>
                 <br><br>
