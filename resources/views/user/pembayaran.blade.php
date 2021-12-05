@@ -23,8 +23,8 @@
     
     <!-- Content -->
     <div class="container bg-dark text-white col-md-8 justify-content-center py-3 my-3 ">
-    
-        <h4 style="text-align: center">Pembayaran Event {{ $events->nama_event }}</h4> <br>    
+        
+        <h4 style="text-align: center">Pembayaran Event</h4> <br>    
         <form method="POST" action="/pembayaran" class="offset-md-1" enctype="multipart/form-data">
             @csrf
             
@@ -51,13 +51,14 @@
                 </div> -->
             </div>
             <!-- 66 -->
-            
+            @foreach($events as $event)
             <input type="hidden" name="id_event" value="{{ $events->id }}">
+            @endforeach
             <div class="form-submit col-sm-11 py-3">
                 <button style="float: right" class="btn btn-primary" type="submit">Submit</button>
                 <br><br>
             </div>
-
+        
         </form>
     </div>
     <!-- Footer -->
