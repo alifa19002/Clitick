@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -75,8 +76,8 @@ Route::get('/editprofile', function () {
 Route::get('/events', [EventController::class, 'index']);
 Route::get('/events/{event:slug}', [EventController::class, 'show']);
 
-Route::get('/events/{id}', [PembayaranController::class, 'index'])->middleware('auth');
-Route::get('/events', [PembayaranController::class, 'store']);
+Route::get('/pembayaran/{id}', [PembayaranController::class, 'index'])->middleware('auth');
+Route::get('/pembayaran', [PembayaranController::class, 'store']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);

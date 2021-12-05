@@ -80,11 +80,7 @@
         <div class="row justify-content" id="eventPreview">
             @foreach ($events as $event)
                 <div class="col-6">
-<<<<<<< HEAD
                     <a href="/detail"><img src="/storage/{{ $event->poster }}" width="148,5px" height="210px" style="float:left" alt=""></a>
-=======
-                    <a href="/detail"><img src="{{ asset('storage/' . $event->poster) }}" width="148,5px" height="210px" style="float:left" alt=""></a>
->>>>>>> e818f4bc87c5298c3202bbd26b49d51a5d87e6c8
                     <h5><a href="/events/{{ $event->slug }}" style="text-decoration:none; color:#181B32; opacity:90%">{{ $event->nama_event }}</a></h5>
                     <p>{{ $event->tgl_event }}</p>
                     <a href="/events?category={{ $event->category->nama_kategori }}" class="btn">{{ $event->category->nama_kategori }}</a>

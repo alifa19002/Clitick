@@ -10,9 +10,9 @@ class PembayaranController extends Controller
 {
     public function index($id)
     {
-        return view('event.pengajuan', [
+        return view('user.pembayaran', [
             "title" => "Pengajuan Event",
-            'active' => 'categories',
+            'active' => 'events',
             'events' => Event::where('id', $id)->first()->id
         ]);
     }
