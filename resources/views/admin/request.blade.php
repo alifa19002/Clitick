@@ -49,7 +49,7 @@
                     <td>{{ $event->status_event }}</td>
                     <td></td>
                     <td>
-                        <a href="/dashboard/events/{{ $event->slug }}" class="btn btn-primary tombol2">Detail</a>
+                        <a href="/dashboard/request/{{ $event->slug }}" class="btn btn-primary tombol2">Detail</a>
                     </td>
                 </tr>
                 @endforeach

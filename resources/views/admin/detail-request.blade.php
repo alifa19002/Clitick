@@ -34,68 +34,49 @@
                 <table class="table" cellpadding="0">
                 <tr>
                     <th>Nama</th>
-                    <td>Jon Kiwang</td>
+                    <td>{{ $events->user->name }}</td>
                 </tr>
                 <tr>
                     <th>Email</th>
-                    <td>jkjonkiwang@gmail.com</td>
+                    <td>{{ $events->user->email }}</td>
                 </tr>
                 <tr>
                     <th>No Telepon</th>
-                    <td>089612345678</td>
+                    <td>{{ $events->user->no_telp }}</td>
                     </tr>
                     <tr>
                         <th>Nama Event</th>
-                        <td>Mahitala</td>
+                        <td>{{ $events->nama_event }}</td>
                     </tr>
                     <tr>
                         <th>Institusi Penyelenggara</th>
-                        <td>Universitas Cigolendang</td>
+                        <td>{{ $events->institusi_penyelenggara }}</td>
                     </tr>
                     <tr>
                         <th>Deskripsi</th>
                         <td><p style="text-align: justify">
-                            Mahitala adalah event tahunan Fakultas Seni Rupa dan Design Universitas Cigolendang. 
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                            when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                            It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
-                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
-                            and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                            {{ $events->deskripsi_event }}
                         </p></td>
                     </tr>
                     <tr>
                         <th>Tanggal Event</th>
-                        <td>30 Desember 2021</td>
+                        <td>{{ $events->tgl_event }}</td>
                     </tr>
                     <tr>
                         <th>Kategori</th>
-                        <td>Webinar</td>
+                        <td>{{ $events->category->nama_kategori }}</td>
                     </tr>
                     <tr>
                         <th>Domisili</th>
-                        <td>Bandung</td>
-                    </tr>
-                    <tr>
-                        <th>Caption</th>
-                        <td><p style="text-align: justify">
-                            Halo! Tahun ini mahitala hadir kembali dengan tema seru.
-                            Menghadirkan BTS sebagai bintang tamu, Mahitala akan diselenggarakan pada 30 Desember 2021.
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                            when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                            It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
-                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
-                            and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                        </p></td>
+                        <td>{{ $events->domisili->nama_domisili }}</td>
                     </tr>
                     <tr>
                         <th>Poster</th>
-                        <td><img src="images/poster.jpg" width=300px alt="#"></td>
+                        <td><img src="{{ asset('storage/' . $events->poster) }}" width=300px alt="#"></td>
                     </tr>
                     <tr>
                         <th>Status Event</th>
-                        <td>Diterima</td>
+                        <td>{{ $events->status_event }}</td>
                     </tr>
 
                     <!-- kalo udah accepted, muncul status pembayaran -->

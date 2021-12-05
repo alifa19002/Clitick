@@ -21,6 +21,7 @@ class CreatePaymentsTable extends Migration
             $table->char('metode_pembayaran', 20);
             $table->double('jml_transfer', 8, 2);
             $table->char('bukti_bayar', 50);
+            $table->string('status_pembayaran', 20);
         });
     }
 

@@ -32,8 +32,8 @@ class PembayaranController extends Controller
             'metode_pembayaran' => request('metode_pembayaran'),
             'tgl_transfer' => request('tgl_transfer'),
             'jml_transfer' => request('jml_transfer'),
-            'id_event' => request('id_event'),
-            'bukti_bayar' => 'payment/' . $uniqueFileName
+            'event_id' => request('event_id'),
+            'bukti_bayar' => 'payment/' . $uniqueFileName,
         ]);
 
         //User::create($validatedData);

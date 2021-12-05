@@ -14,6 +14,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardEventController;
 use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\UserController;
+use App\Models\Payment;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -91,8 +92,15 @@ Route::post('/pengajuan', [PengajuanController::class, 'store']);
 
 Route::get('/dashboard/request', function () {
     $title = "Dashboard Admin";
-    $events = Event::where('status_event', 'requested')->get();
+    $events = Event::where('status_event', 'Requested')->get();
     return view('admin.request', compact(['title', 'events']));
+})->middleware('auth');
+
+Route::get('/dashboard/request/{event:slug}', function (Event $event) {
+    $title = "Detail Requested Event";
+    $events = Event::where('slug', $event->slug)->first();
+    $event_payment = Payment::where('event_id', $events->id)->first();
+    return view('admin.detail-request', compact(['title', 'events', 'event_payment']));
 })->middleware('auth');
 
 Route::get('/dashboard/events/checkSlug', [DashboardEventController::class, 'checkSlug'])->middleware('auth');

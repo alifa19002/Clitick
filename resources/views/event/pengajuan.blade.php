@@ -71,15 +71,11 @@
                     <label for="upload-event">Upload Poster</label>
                     <input type="file" class="form-control" name="poster">
                 </div>
-                <!-- <div class="form-group col-sm mt-4">
-                    <button style="float: right" class="btn btn-secondary" type="" ><i class="far fa-folder-open"></i></button>
-                </div> -->
             </div>
-            <!-- 66 -->
             @auth
             <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
             @endauth
-            <input type="hidden" name="status_event" value="Diajukan">
+            <input type="hidden" name="status_event" value="Requested">
             <div class="form-submit col-sm-11 py-3">
                 <button style="float: right" class="btn btn-primary" type="submit">Submit</button>
                 <br><br>
