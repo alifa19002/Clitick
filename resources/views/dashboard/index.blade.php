@@ -48,6 +48,7 @@
                     <th>Kategori Event</th>
                     <th>Tanggal Event</th>
                     <th>Detail</th>
+                    <th>Status</th>
                     <th>Action</th>
                 </tr>
                 @foreach($events as $event)
@@ -60,6 +61,7 @@
                     <td>
                         <a href="/dashboard/events/{{ $event->slug }}" class="btn btn-primary tombol2">Detail</a>
                     </td>
+                    <td>{{ $event->status_event }}</td>
                     <td>
                         <a href="/dashboard/events/{{ $event->slug }}/edit" class="btn btn-warning tombol2">Edit</a>
                         <form action="/dashboard/events/{{ $event->slug }}" method="post" class="d-inline">

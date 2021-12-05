@@ -39,7 +39,7 @@
                 <input type="text" class="form-control" name="institusi_penyelenggara" value="{{ old('institusi_penyelenggara') }}">
             </div>
             <div class="form-group row col-md-11">
-                <label for="katogeri-event">Kategori Event</label>
+                <label for="kategori-event">Kategori Event</label>
                 <select type="text" class="form-select" name="category_id" value="{{ old('category_id') }}">
                     <option value=""></option>
                     @foreach ($categories as $category)

@@ -28,7 +28,7 @@
         <div class="row justify-content-md-center">
             <div class="content" id="top-content">
                 @if($profilUser->foto_profil)
-                <img src="{{ asset('storage/' . $profilUser->foto_profil) }}" width="280px" style="float:left" alt="">
+                <img src="{{ asset('storage/' . $profilUser->foto_profil) }}" width="280px" height="280px" style="float:left; border-radius:50%" alt="">
                 @else
                 <img src="{{ asset('images/foto-profil.png') }}" alt="" width="280px" style="float:left" alt="">
                 @endif

@@ -440,6 +440,13 @@ footer .mb-3 a{
     box-shadow: 0px 0px 5px 1px black;
 }
 
+.global-container img{
+    margin: auto;
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+}
+
 /* admin */
 .container .row h2{
     margin: 50px 0 50px 0 ;

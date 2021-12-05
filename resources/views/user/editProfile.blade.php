@@ -25,88 +25,88 @@
         <!-- Content -->
         <div class="global-container">
             <div class="row justify-content-md-center">
-                {{-- <div class="card-body"> --}}
-                  <div class="content mt-5" id="top-content">
-                      <div>
-                        <h2 style="text-align: center" class="edit mt-3 mb-3">Edit Profile</h2>
-                      </div>
-                      <form method="post" action="/profile/{{ $profilUser->username }}" enctype="multipart/form-data">
-                        <input type="hidden" name="oldImage" value="{{ $profilUser->foto_profil }}">
-                        @if ($profilUser->foto_profil)
-                        <img src="{{ asset('storage/' . $profilUser->foto_profil) }}" width="180px" style="float:left" alt="" class="img-preview">
-                        @else
-                        <img src="{{ asset('images/foto-profil.png') }}" width="180px" style="float:left" alt="" class="img-preview">
-                        @endif
-                        <label>Edit Foto Profil</label>
-                        <input class="form-control @error('foto_profil') is-invalid @enderror" type="file" id="foto_profil" name="foto_profil" onchange="previewImage()">
-                        @error('foto_profil')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                        @enderror
-                        <h5 class="edit mt-5 mb-3">Hallo, </h5>
-                        <p class="edit mb-2">You can fill this form to update your profile!</p>
+              <div class="content mt-5" id="top-content">
+                <div>
+                  <h2 style="text-align: center" class="edit mt-3 mb-3">Edit Profile</h2>
+                </div>
+                <form method="post" action="/profile/{{ $profilUser->username }}" enctype="multipart/form-data">
+                  <div class="col-md-8" style="margin-left:150px">
+                    <input type="hidden" name="oldImage" value="{{ $profilUser->foto_profil }}">
+                    @if ($profilUser->foto_profil)
+                    <img src="{{ asset('storage/' . $profilUser->foto_profil) }}"  style="float:left" alt="" class="img-preview mb-3">
+                    @else
+                    <img src="{{ asset('images/foto-profil.png') }}" width="180px" style="float:left" alt="" class="img-preview">
+                    @endif
+                    <h5 class="edit mt-5 mb-3">Hallo, </h5>
+                    <p class="edit mb-2">You can fill this form to update your profile!</p>
+                    {{-- <label class="mt-5">Edit Foto Profil</label> --}}
+                    <input class="form-control @error('foto_profil') is-invalid @enderror mt-5" type="file" id="foto_profil" name="foto_profil" onchange="previewImage()">
+                    @error('foto_profil')
+                    <div class="invalid-feedback">
+                        {{ $message }}
                     </div>
-                    <div class="row justify-content" id="bottom-content">
-                          
-                          @method('put')
-                          @csrf
-                          <div class="box-login">
-                            <h6>Name</h6>
-                            <input type="text" name="name" class="form-control rounded-top @error('name') is-invalid @enderror" id="name" placeholder="Name" required value="{{ old('name', $profilUser->name) }}">
-                            @error('name')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                          </div>
-                          <div class="box-login mt-3">
-                            <h6>Username</h6>
-                            <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" id="username" placeholder="Username" required value="{{ old('username',  $profilUser->username) }}">
-                            @error('username')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                          </div>
-                          <div class="box-login mt-3">
-                            <h6>Email address</h6>
-                            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Email address" required value="{{ old('email',  $profilUser->email) }}">                            
-                            @error('email')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                          </div>
-                          <div class="box-login mt-3">
-                            <h6>Nomor Telepon</h6>
-                            <input type="tel" name="no_telp" class="form-control @error('no_telp') is-invalid @enderror" id="no_telp" placeholder="Nomor Telepon" required value="{{ old('no_telp',  $profilUser->no_telp) }}">                            
-                            @error('no_telp')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                          </div>
-                          <div class="box-login mt-3">
-                            <h6>Jenis Kelamin</h6>
-                            <div class="form-check2">
-                              <input class="form-check-input @error('jk') is-invalid @enderror" type="radio" name="jk" id="jk" required value="L" {{ old('jk', $profilUser->jk) == 'L' ? 'checked' : '' }}> L
-                            </div>
-                            <div class="form-check2">
-                              <input class="form-check-input @error('jk') is-invalid @enderror" type="radio" name="jk" id="jk" required value="P" {{ old('jk', $profilUser->jk) == 'P' ? 'checked' : '' }}> P
-                            </div>
-                            @error('jk')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                          </div>
-      
-                          <button class="w-100 btn btn-md btn-primary mt-4 mb-5" type="submit">Update Profile</button>
-                        </form>
-                    </div>
+                    @enderror
+                  </div>
             </div>
+            <div class="col-md-10 row justify-content"  id="bottom-content">
+                    
+                    @method('put')
+                    @csrf
+                    <div class="box-login2">
+                      <h6>Name</h6>
+                      <input type="text" name="name" class="form-control rounded-top @error('name') is-invalid @enderror" id="name" placeholder="Name" required value="{{ old('name', $profilUser->name) }}">
+                      @error('name')
+                          <div class="invalid-feedback">
+                              {{ $message }}
+                          </div>
+                      @enderror
+                    </div>
+                    <div class="box-login2 mt-3">
+                      <h6>Username</h6>
+                      <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" id="username" placeholder="Username" required value="{{ old('username',  $profilUser->username) }}">
+                      @error('username')
+                      <div class="invalid-feedback">
+                          {{ $message }}
+                      </div>
+                      @enderror
+                    </div>
+                    <div class="box-login2 mt-3">
+                      <h6>Email address</h6>
+                      <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Email address" required value="{{ old('email',  $profilUser->email) }}">                            
+                      @error('email')
+                      <div class="invalid-feedback">
+                          {{ $message }}
+                      </div>
+                      @enderror
+                    </div>
+                    <div class="box-login2 mt-3">
+                      <h6>Nomor Telepon</h6>
+                      <input type="tel" name="no_telp" class="form-control @error('no_telp') is-invalid @enderror" id="no_telp" placeholder="Nomor Telepon" required value="{{ old('no_telp',  $profilUser->no_telp) }}">                            
+                      @error('no_telp')
+                      <div class="invalid-feedback">
+                          {{ $message }}
+                      </div>
+                      @enderror
+                    </div>
+                    <div class="box-login2 mt-3">
+                      <h6>Jenis Kelamin</h6>
+                      <div class="form-check2">
+                        <input class="form-check-input @error('jk') is-invalid @enderror" type="radio" name="jk" id="jk" required value="L" {{ old('jk', $profilUser->jk) == 'L' ? 'checked' : '' }}> L
+                      </div>
+                      <div class="form-check2">
+                        <input class="form-check-input @error('jk') is-invalid @enderror" type="radio" name="jk" id="jk" required value="P" {{ old('jk', $profilUser->jk) == 'P' ? 'checked' : '' }}> P
+                      </div>
+                      @error('jk')
+                      <div class="invalid-feedback">
+                          {{ $message }}
+                      </div>
+                      @enderror
+                    </div>
 
+                    <button class="w-100 btn btn-md btn-primary mt-4 mb-5" type="submit">Update Profile</button>
+                  </form>
+            </div>
+          </div>
         </div>
         <!-- Footer -->
         @include('template.footer')

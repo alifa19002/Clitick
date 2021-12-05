@@ -37,21 +37,22 @@
                 <h1 class="mt-5"><b>{{ $event->nama_event }}</b></h1>
                 <a class="btn btn-secondary btn-sm" href="">{{ $event->category->nama_kategori }}</a>
                 <a class="btn btn-secondary btn-sm" href="">{{ $event->tgl_event }}</a>
+                <a class="btn btn-secondary btn-sm" href="">{{ $event->domisili->nama_domisili }}</a>
+                <hr>
                 <div class="desc mt-5">
                     <h3>Deskripsi Event</h3>
                     <p>{{ $event->deskripsi_event }}</p>
                 </div>
-                <div class="desc mt-4">
+                {{-- <div class="desc mt-4">
                     <h5><i class="bi bi-exclamation-lg" style="color: red"></i>Mark the date for THINK CLICK<i class="bi bi-exclamation-lg" style="color: red"></i></h5>
                     <p><i class="bi bi-calendar-date"></i> {{ $event->tgl_event }}
-                    {{-- <br><i class="bi bi-clock"></i>  00.00 - Finish --}}
-                    <br><i class="bi bi-pin-angle"></i> {{ $event->domisili_id }}</p>
-                </div>
+                    <br><i class="bi bi-pin-angle"></i> {{ $event->domisili->nama_domisili }}</p>
+                </div> --}}
                 <div class="desc mt-4">
                     <h5><i class="bi bi-exclamation-lg" style="color: red"></i>Registration Link<i class="bi bi-exclamation-lg" style="color: red"></i></h5s>
                     <br><a href="https://{{ $event->link_reg }}">{{ $event->link_reg }}</a>
                 </div>
-                <hr>
+                {{-- <hr> --}}
                 <div class="desc mt-3">
                         <p>For more information :
                         <br> Ig : @event

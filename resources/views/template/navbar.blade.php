@@ -23,9 +23,23 @@
                     <a class="nav-link {{ $title === ("Informasi") ? 'active' : '' }}" href="/informasi">Informasi</a>
                 </li>
                 @auth
+                
+                @if (Auth::user()->is_admin == 1)
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle {{ $title === ("Dashboard") ? 'active' : '' }}" href="/events" id="navbarDropdown" role="button"  aria-expanded="false">
+                    Database<i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/dashboard/events">Rekap Event</a></li>
+                        <li><a class="dropdown-item" href="/dashboard/request">Requested Event</a></li>
+                        <li><a class="dropdown-item" href="/pengajuan">Pengajuan Event</a></li>
+                    </ul>
+                </li>
+                @else
                 <li class="nav-item">
                     <a class="nav-link {{ $title === ("Pengajuan Event") ? 'active' : '' }}" aria-current="page" href="/pengajuan">Ajukan Event</a>
                 </li>
+                @endif
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Welcome back, {{ auth()->user()->username }}

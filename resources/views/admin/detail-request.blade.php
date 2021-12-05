@@ -18,7 +18,7 @@
     <script src="https://kit.fontawesome.com/fb85f1a3b6.js" crossorigin="anonymous"></script>
     
     <!-- My CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <title>CLITICK | {{ $title }}</title>
   </head>
 
@@ -104,26 +104,26 @@
                             @csrf
                             <input type="hidden" name="event_id" id="event_id" value="{{ $events->id }}">
                             <input type="hidden" name="status_event" id="status_event" value="Payment">
-                            <button class="btn btn-primary" type="submit">Confirm</button>
+                            <button class="btn btn-success" type="submit">Confirm</button>
                             </form>
                             <form method="POST" action="/dashboard/request/{{ $events->slug }}/accept">
                             @csrf
                             <input type="hidden" name="event_id" id="event_id" value="{{ $events->id }}">
                             <input type="hidden" name="status_event" id="status_event" value="Rejected">
-                            <button class="btn btn-primary" type="submit">Reject</button>
+                            <button class="btn btn-danger mt-3" type="submit">Reject</button>
                             </form>
                             @elseif($events->payment_id != NULL )
                             <form method="POST" action="/dashboard/request/{{ $events->slug }}/accept">
                             @csrf
                             <input type="hidden" name="event_id" id="event_id" value="{{ $events->id }}">
                             <input type="hidden" name="status_event" id="status_event" value="Accepted">
-                            <button class="btn btn-primary" type="submit">Accept</button>
+                            <button class="btn btn-success" type="submit">Accept</button>
                             </form>
                             <form method="POST" action="/dashboard/request/{{ $events->slug }}/accept">
                             @csrf
                             <input type="hidden" name="event_id" id="event_id" value="{{ $events->id }}">
                             <input type="hidden" name="status_event" id="status_event" value="Rejected">
-                            <button class="btn btn-primary" type="submit">Reject</button>
+                            <button class="btn btn-danger mt-3" type="submit">Reject</button>
                             </form>
                             @endif
                         </td>

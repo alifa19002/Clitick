@@ -62,27 +62,35 @@
                 @enderror
             </div>
             <div class="form-group row col-md-11 mt-3">
-                <label for="category" class="form-label">Category</label>
-                <select class="form-select" name="category_id">
-                    @foreach($categories as $category)
+                <label for="kategori-event" class="form-label">Category</label>
+                <select class="form-select" name="category_id" value="{{ old('category_id') }}">
+                    <option value=""></option>
+                    @foreach ($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->nama_kategori }}</option>
+                    @endforeach
+                    {{-- @foreach($categories as $category)
                     @if (old('category_id') == $category->id)
                     <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
                     @else
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @endif
-                    @endforeach
+                    @endforeach --}}
                 </select>
             </div>
             <div class="form-group row col-md-11 mt-3">
-                <label for="domisili" class="form-label">Domisili</label>
-                <select class="form-select" name="domisili_id">
-                    @foreach($domisilis as $domisili)
-                    @if (old('domisili_id') == $domisili->id)
-                    <option style="color: black" value="{{ $domisili->id }}" selected>{{ $domisili->name }}</option>
-                    @else
-                    <option style="color: black" value="{{ $domisili->id }}">{{ $domisili->name }}</option>
-                    @endif
+                <label for="domisili-event" class="form-label">Domisili</label>
+                <select class="form-select" name="domisili_id" value="{{ old('domisili_id') }}">
+                    <option value=""></option>
+                    @foreach ($domisilis as $domisili)
+                    <option value="{{ $domisili->id }}">{{ $domisili->nama_domisili }}</option>
                     @endforeach
+                    {{-- @foreach($domisilis as $domisili)
+                    @if (old('domisili_id') == $domisili->id)
+                    <option value="{{ $domisili->id }}" selected>{{ $domisili->name }}</option>
+                    @else
+                    <option value="{{ $domisili->id }}">{{ $domisili->name }}</option>
+                    @endif
+                    @endforeach --}}
                 </select>
             </div>
             <div class="form-group row col-md-11 mt-3">
@@ -96,8 +104,17 @@
             </div>
             <div class="form-group row col-md-11 mt-3">
                 <label for="deskripsi_event" class="form-label">Deskripsi event</label>
-                <input type="text" class="form-control @error('deskripsi_event') is-invalid @enderror" id="deskripsi_event" name="deskripsi_event" required value="{{ old('deskripsi_event') }}">
+                <textarea type="text" class="form-control @error('deskripsi_event') is-invalid @enderror" id="deskripsi_event" name="deskripsi_event" required value="{{ old('deskripsi_event') }}"></textarea>
                 @error('deskripsi_event')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
+            <div class="form-group row col-md-11 mt-3">
+                <label for="link_reg" class="form-label">Link Registrasi</label>
+                <input type="text" class="form-control @error('link_reg') is-invalid @enderror" id="link_reg" name="link_reg" required value="{{ old('link_reg') }}">
+                @error('link_reg')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>

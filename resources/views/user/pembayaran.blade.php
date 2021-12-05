@@ -14,7 +14,7 @@
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/fb85f1a3b6.js" crossorigin="anonymous"></script>
     <!-- My CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ asset("css/style.css") }}">
     <title>CLITICK | {{ $title }}</title>
   </head>
   <body class="bg">
@@ -30,7 +30,13 @@
             <input type="hidden" name="status_pembayaran" id="status_pembayaran" value="Sudah Dibayar">
             <div class="form-group row col-md-11">
                 <label for="metode_pembayaran">Metode Pembayaran</label>
-                <input type="text" class="form-control" name="metode_pembayaran" value="{{ old('metode_pembayaran') }}">
+                <select type="text" class="form-select" name="metode_pembayaran" value="{{ old('metode_pembayaran') }}">
+                    <option value=""></option>
+                    <option value="1">Bank Mandiri</option>
+                    <option value="2">Bank BNI</option>
+                    <option value="3">Bank BRI</option>
+                    <option value="4">DANA</option>
+                </select>
             </div>
             
             <div class="form-group row col-md-11">

@@ -39,7 +39,7 @@
                   </div>
               @enderror
             </div>
-            <div class="form-group row col-md-11">
+            <div class="form-group row col-md-11 mt-3">
                 <label for="slug" class="form-label">Slug</label>
                 <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" required value="{{ old('slug', $event->slug) }}">
                 @error('slug')
@@ -48,7 +48,7 @@
                 </div>
             @enderror
             </div>
-            <div class="form-group row col-md-11">
+            <div class="form-group row col-md-11 mt-3">
                 <label for="institusi_penyelenggara" class="form-label">Institusi Penyelenggara</label>
                 <input type="text" class="form-control @error('institusi_penyelenggara') is-invalid @enderror" id="institusi_penyelenggara" name="institusi_penyelenggara" required value="{{ old('institusi_penyelenggara', $event->institusi_penyelenggara) }}">
                 @error('institusi_penyelenggara')
@@ -57,31 +57,39 @@
                 </div>
                 @enderror
             </div>
-            <div class="form-group row col-md-11">
-                <label for="category" class="form-label">Category</label>
-                <select class="form-select" name="category_id">
-                    @foreach($categories as $category)
+            <div class="form-group row col-md-11 mt-3">
+                <label for="kategori-event" class="form-label">Category</label>
+                <select class="form-select" name="category_id" value="{{ old('category_id') }}">
+                    <option value=""></option>
+                    @foreach ($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->nama_kategori }}</option>
+                    @endforeach
+                    {{-- @foreach($categories as $category)
                     @if (old('category_id', $event->category_id) == $category->id)
                     <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
                     @else
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @endif
-                    @endforeach
+                    @endforeach --}}
                 </select>
             </div>
-            <div class="form-group row col-md-11">
+            <div class="form-group row col-md-11 mt-3">
                 <label for="domisili" class="form-label">Domisili</label>
-                <select class="form-select" name="domisili_id">
-                    @foreach($domisilis as $domisili)
+                <select class="form-select" name="domisili_id" value="{{ old('domisili_id') }}">
+                    <option value=""></option>
+                    @foreach ($domisilis as $domisili)
+                    <option value="{{ $domisili->id }}">{{ $domisili->nama_domisili }}</option>
+                    @endforeach
+                    {{-- @foreach($domisilis as $domisili)
                     @if (old('domisili_id', $event->domisili_id) == $domisili->id)
                     <option value="{{ $domisili->id }}" selected>{{ $domisili->name }}</option>
                     @else
                     <option value="{{ $domisili->id }}">{{ $domisili->name }}</option>
                     @endif
-                    @endforeach
+                    @endforeach --}}
                 </select>
             </div>
-            <div class="form-group row col-md-11">
+            <div class="form-group row col-md-11 mt-3">
                 <label for="tgl_event" class="form-label">Tanggal Event</label>
                 <input type="date" class="form-control @error('tgl_event') is-invalid @enderror" id="tgl_event" name="tgl_event" required value="{{ old('tgl_event', $event->tgl_event) }}">
                 @error('tgl_event')
@@ -90,10 +98,19 @@
                 </div>
                 @enderror
             </div>
-            <div class="form-group row col-md-11">
+            <div class="form-group row col-md-11 mt-3">
                 <label for="deskripsi_event" class="form-label">Deskripsi event</label>
                 <input type="text" class="form-control @error('deskripsi_event') is-invalid @enderror" id="deskripsi_event" name="deskripsi_event" required value="{{ old('deskripsi_event', $event->deskripsi_event) }}">
                 @error('deskripsi_event')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
+            <div class="form-group row col-md-11 mt-3">
+                <label for="link_reg" class="form-label">Link Registrasi</label>
+                <input type="text" class="form-control @error('link_reg') is-invalid @enderror" id="link_reg" name="link_reg" required value="{{ old('link_reg', $event->link_reg) }}">
+                @error('link_reg')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
