@@ -52,6 +52,6 @@ class DatabaseSeeder extends Seeder
             'nama_domisili' => 'Bandung'
         ]);
 
-        Event::factory(20)->create();
+        // Event::factory(20)->create();
     }
 }

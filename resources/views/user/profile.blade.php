@@ -92,9 +92,8 @@
                                     <th>Penyelenggara</th>
                                     {{-- <th>Kategori Event</th> --}}
                                     <th>Tanggal Event</th>
-                                    <th>Status</th>
+                                    <th>Status Event</th>
                                     <th>Status Pembayaran</th>
-                                    <th>Action</th>
                                 </tr>
                                 @foreach($my_events as $event)
                                 <tr>
@@ -108,13 +107,17 @@
                                     </td>
                                     
                                     <td>
+                                        @if( $event->status_event=="Requested")
+                                        <p>Menunggu Konfirmasi</p>
+                                        @elseif( $event->status_event=="Rejected")
+                                        <p></p>
+                                        @elseif( $event->status_event=="Payment" && $event->payment_id==NULL)
                                         <a href="/pembayaran/{{ $event->id }}" class="btn btn-primary">Belum Dibayar</a>
+                                        @else
+                                        <a href="#" class="btn btn-primary">{{ $event->payment->status_pembayaran }}</a>
+                                        @endif
                                     </td>
-                                    
-                                    <td>
-                                        <a href="/editevent"><i class="far fa-edit fa-lg"></i></a>
-                                        <a href="#"><i class="far fa-trash-alt fa-lg"></i></a>
-                                    </td>
+                                
                                 </tr>
                                 @endforeach
                             </table>

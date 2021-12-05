@@ -82,19 +82,44 @@
                     <!-- kalo udah accepted, muncul status pembayaran -->
                     <tr>
                         <th>Status Pembayaran</th>
-                        <td>Sudah Dibayar</td>
+                        @if($events->payment_id !=NULL)
+                        <td>{{ $events->payment->status_pembayaran }}</td>
+                        @else
+                        <td>Belum Dibayar</td>
+                        @endif
                     </tr>
 
                     <tr>
                         <th>Action</th>
                         <td>
                             <!-- kalo blm accepted, ada tombol ini -->
-                            <a href="#" class="btn btn-success tombol2">Accept</a>
-                            <a href="#" class="btn btn-danger tombol2">Reject</a>
-
-                            <!-- kalo udah accepted, muncul tombol buat upload. kalo eventnya udah diupload, tombol ini gaakan muncul lagi -->
-                            <a href="#" class="btn btn-warning tombol2">Upload Event</a>
-
+                            @if($events->status_event == "Requested")
+                            <form method="POST" action="/dashboard/request/{{ $events->slug }}/accept">
+                            @csrf
+                            <input type="hidden" name="event_id" id="event_id" value="{{ $events->id }}">
+                            <input type="hidden" name="status_event" id="status_event" value="Payment">
+                            <button class="btn btn-primary" type="submit">Confirm</button>
+                            </form>
+                            <form method="POST" action="/dashboard/request/{{ $events->slug }}/accept">
+                            @csrf
+                            <input type="hidden" name="event_id" id="event_id" value="{{ $events->id }}">
+                            <input type="hidden" name="status_event" id="status_event" value="Rejected">
+                            <button class="btn btn-primary" type="submit">Reject</button>
+                            </form>
+                            @elseif($events->payment_id != NULL )
+                            <form method="POST" action="/dashboard/request/{{ $events->slug }}/accept">
+                            @csrf
+                            <input type="hidden" name="event_id" id="event_id" value="{{ $events->id }}">
+                            <input type="hidden" name="status_event" id="status_event" value="Accepted">
+                            <button class="btn btn-primary" type="submit">Accept</button>
+                            </form>
+                            <form method="POST" action="/dashboard/request/{{ $events->slug }}/accept">
+                            @csrf
+                            <input type="hidden" name="event_id" id="event_id" value="{{ $events->id }}">
+                            <input type="hidden" name="status_event" id="status_event" value="Rejected">
+                            <button class="btn btn-primary" type="submit">Reject</button>
+                            </form>
+                            @endif
                         </td>
                     </tr>
                 </table>

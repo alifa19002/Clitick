@@ -12,7 +12,7 @@ class HomeController extends Controller
         return view('user.home', [
             'title' => 'Home',
             'active' => 'home',
-            'latest_events' => Event::latest()->limit(5)->get()
+            'latest_events' => Event::where('status_event', 'Accepted')->latest()->limit(5)->get()
         ]);
     }
 }

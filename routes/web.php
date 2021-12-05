@@ -80,6 +80,7 @@ Route::get('/events/{event:slug}', [EventController::class, 'show']);
 Route::get('/pembayaran/{id}', [PembayaranController::class, 'index'])->middleware('auth');
 Route::post('/pembayaran', [PembayaranController::class, 'store']);
 
+
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
@@ -92,7 +93,7 @@ Route::post('/pengajuan', [PengajuanController::class, 'store']);
 
 Route::get('/dashboard/request', function () {
     $title = "Dashboard Admin";
-    $events = Event::where('status_event', 'Requested')->get();
+    $events = Event::where('status_event', 'Requested')->orWhere('status_event', 'Payment')->get();
     return view('admin.request', compact(['title', 'events']));
 })->middleware('auth');
 
@@ -102,6 +103,7 @@ Route::get('/dashboard/request/{event:slug}', function (Event $event) {
     $event_payment = Payment::where('event_id', $events->id)->first();
     return view('admin.detail-request', compact(['title', 'events', 'event_payment']));
 })->middleware('auth');
+Route::post('/dashboard/request/{event:slug}/accept', [PembayaranController::class, 'accept']);
 
 Route::get('/dashboard/events/checkSlug', [DashboardEventController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/events', DashboardEventController::class)->middleware('auth');

@@ -27,6 +27,7 @@
         <form method="POST" action="/pembayaran" class="offset-md-1" enctype="multipart/form-data">
             @csrf
             <input type="hidden" name="event_id" id="event_id" value="{{ $events->id }}">
+            <input type="hidden" name="status_pembayaran" id="status_pembayaran" value="Sudah Dibayar">
             <div class="form-group row col-md-11">
                 <label for="metode_pembayaran">Metode Pembayaran</label>
                 <input type="text" class="form-control" name="metode_pembayaran" value="{{ old('metode_pembayaran') }}">

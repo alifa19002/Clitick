@@ -47,7 +47,11 @@
                     <td>{{ $event->institusi_penyelenggara }}</td>
                     <td>{{ $event->tgl_event }}</td>
                     <td>{{ $event->status_event }}</td>
-                    <td></td>
+                    @if($event->payment_id == NULL)
+                    <td>Belum Dibayar</td>
+                    @else
+                    <td>{{ $event->payment->status_pembayaran }}</td>
+                    @endif
                     <td>
                         <a href="/dashboard/request/{{ $event->slug }}" class="btn btn-primary tombol2">Detail</a>
                     </td>
