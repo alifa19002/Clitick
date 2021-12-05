@@ -27,11 +27,15 @@
     <div class="container">
         <div class="row justify-content-md-center">
             <div class="content" id="top-content">
-                <img src="{{ asset('images/foto-profil.png') }}" width="280px" style="float:left" alt="">
+                @if($profilUser->foto_profil)
+                <img src="{{ asset('storage/' . $profilUser->foto_profil) }}" width="280px" style="float:left" alt="">
+                @else
+                <img src="{{ asset('images/foto-profil.png') }}" alt="" width="280px" style="float:left" alt="">
+                @endif
                 <h5>Hi,</h5>
                 <h4>{{ auth()->user()->username }}</h4>
                 <h6>{{ auth()->user()->email }}</h6>
-                <a class="btn btn-primary" href="/editprofile">Edit Profil</a>
+                <a class="btn btn-primary" href="/profile/{{ auth()->user()->username }}/edit">Edit Profil</a>
             </div>
         </div>
     </div>
@@ -52,19 +56,19 @@
                     <div class="row justify-content" id="bottom-content">
                         <div class="col-6">
                             <h6>NAMA</h6>
-                            <p>{{ auth()->user()->name }}</p>
+                            <p> {{ $profilUser->name }}</p>
                         </div>
                         <div class="col-6">
                             <h6>JENIS KELAMIN</h6>
-                            <p>{{ auth()->user()->jk }}</p>
+                            <p>{{ $profilUser->jk }}</p>
                         </div>
                         <div class="col-6">
                             <h6>EMAIL</h6>
-                            <p>{{ auth()->user()->email }}</p>
+                            <p>{{ $profilUser->email }}</p>
                         </div>
                         <div class="col-6">
                             <h6>NO TELEPON</h6>
-                            <p>{{ auth()->user()->no_telp }}</p>
+                            <p>{{ $profilUser->no_telp }}</p>
                         </div>
                     </div>
                 </div>
@@ -72,10 +76,6 @@
                 <div class="tab-pane fade" id="pills-events" role="tabpanel" aria-labelledby="pills-profile-tab">
                     <!-- Event saya - kalo no data  -->
                     <div class="row justify-content-md-center">
-                        {{-- <div class="content" id="no-data">
-                            <img src="images/no-data.png" width="280px" alt="">
-                            <p>Sepertinya kamu belum mengajukan publikasi event nih!</p>
-                        </div> --}}
 
                     <!-- Tinggal kasih conditions  -->
 
@@ -85,25 +85,25 @@
                         </div>
                         <div class="my col-md-8" id="data">
                             @if($my_events->count())
-                            <table class="table table-responsive-sm" style="text-align:center">
+                            <table class="table table-responsive-sm css-serial" style="text-align:center">
                                 <tr class="table-secondary">
                                     <th>No</th>
                                     <th>Nama Event</th>
                                     <th>Penyelenggara</th>
-                                    <th>Kategori Event</th>
+                                    {{-- <th>Kategori Event</th> --}}
                                     <th>Tanggal Event</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                                 @foreach($my_events as $event)
                                 <tr>
-                                    <td>{{ $event->id }}</td>
-                                    <td><a style="color: #4C4C4C" href="/detail">Mahitala</a></td>
-                                    <td>Universitas Cigolendang</td>
-                                    <td>Konser</td>
-                                    <td>30 Desember 2021</td>
+                                    <td></td>
+                                    <td><a style="color: #4C4C4C" href="/events/{{ $event->slug }}">{{ $event->nama_event }}</a></td>
+                                    <td>{{ $event->institusi_penyelenggara }}</td>
+                                    {{-- <td>{{ $event->nama_kategori}}</td> --}}
+                                    <td>{{ $event->tgl_event }}</td>
                                     <td>
-                                        <a href="#" class="btn btn-primary tombol2">Accepted</a>
+                                        <a href="#" class="btn btn-primary tombol2">{{ $event->status_event }}</a>
                                     </td>
                                     <td>
                                         <a href="/editevent"><i class="far fa-edit fa-lg"></i></a>
@@ -116,7 +116,10 @@
                             <h6 style="text-align: center">Click Nama Event for Detail</h6>
                             @else
                             {{-- masukin gambar yang no data --}}
-                            <p>Sepertinya kamu belum pernah mengajukan event nih!</p>
+                            <div class="content" id="no-data">
+                                <img src="/images/no-data.png" width="280px" alt="no-data">
+                                <p>Sepertinya kamu belum mengajukan publikasi event nih!</p>
+                            </div>
                             @endif
                         </div>
                     </div>

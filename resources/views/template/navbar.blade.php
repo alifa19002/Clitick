@@ -13,9 +13,10 @@
                     <a class="nav-link dropdown-toggle {{ $title === ("Event") ? 'active' : '' }}" href="/events" id="navbarDropdown" role="button"  aria-expanded="false">
                     Event<i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Event Terbaru</a></li>
-                        <li><a class="dropdown-item" href="#">Event Terpopuler</a></li>
-                        <!-- <li><hr class="dropdown-divider"></li> -->
+                        <li><a class="dropdown-item" href="/events">Semua Kategori</a></li>
+                        <li><a class="dropdown-item" href="/events?category=Webinar">Webinar</a></li>
+                        <li><a class="dropdown-item" href="/events?category=Lomba">Lomba</a></li>
+                        <li><a class="dropdown-item" href="/events?category=Konferensi">Konferensi</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -30,12 +31,12 @@
                       Welcome back, {{ auth()->user()->username }}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="/profile/{{ auth()->user()->username }}"><i class="fas fa-user"></i> My Profile</a></li>
+                      <li><a class="dropdown-item" href="/profile"><i class="fas fa-user"></i> My Profile</a></li>
                       <li><hr class="dropdown-divider"></li>
                       <li>
                           <form action="/logout" method="post">
                             @csrf
-                              <button type="submit" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                              <button type="submit" class="dropdown-item" id="logout"><i class="fas fa-sign-out-alt"></i> Logout</button>
                           </form>
                     </ul>
                 </li>

@@ -30,10 +30,10 @@
                 <label for="nama-event">Nama Event</label>
                 <input type="text" class="form-control" name="nama_event" value="{{ old('nama_event') }}">
             </div>
-            <div class="form-group row col-md-11">
+            {{-- <div class="form-group row col-md-11">
                 <label for="deskripsi-event">Deskripsi Event</label>
                 <input type="text" class="form-control" name="deskripsi_event" value="{{ old('deskripsi_event') }}">
-            </div>
+            </div> --}}
             <div class="form-group row col-md-11">
                 <label for="institusi-event">Institusi Penyelenggara</label>
                 <input type="text" class="form-control" name="institusi_penyelenggara" value="{{ old('institusi_penyelenggara') }}">
@@ -63,9 +63,8 @@
                 <input type="date" class="form-control" name="tgl_event" value="{{ old('tgl_event') }}">
             </div>
             <div class="form-group row col-md-11">
-                <label for="captiom-event">Caption</label>
-                <textarea type="text" class="form-control">
-                </textarea>
+                <label for="captiom-event">Deskripsi</label>
+                <textarea type="text" class="form-control" name="deskripsi_event" value="{{ old('deskripsi_event') }}"></textarea>
             </div>
             <div class="form-group row col-md-11">
                 <div class="form-group row col-md-10">
@@ -89,11 +88,12 @@
         </form>
     </div>
     <!-- Footer -->
-    <footer class="footer bg-dark text-white d-flex py-2 align-items-center">
+    @include('template.footer')
+    <!-- <footer class="footer bg-dark text-white d-flex py-2 align-items-center">
       <div class="container">
         <p style="text-align: center">@Copyright 2021</p>
       </div>
-    </footer>
+    </footer> -->
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

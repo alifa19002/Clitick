@@ -31,6 +31,7 @@
         </div>
         <div class="row justify-content-md-center">
             <a href="/dashboard/events/create" class="btn btn-primary mb-3">Add new event</a>
+            <a href="/dashboard/events/request" class="btn btn-secondary mb-3">Requested Event</a>
             <table class="table table-striped table-bordered table-responsive-md" style="text-align:center">
                 <tr class="table-info">
                     <th>No</th>
@@ -38,7 +39,7 @@
                     <th>Institusi Penyelenggara</th>
                     <th>Kategori Event</th>
                     <th>Tanggal Event</th>
-                    <th>Detail</th>
+                    <!-- <th>Detail</th> -->
                     <th>Action</th>
                 </tr>
                 @foreach($events as $event)
@@ -48,6 +49,9 @@
                     <td>{{ $event->institusi_penyelenggara }}</td>
                     <td>{{ $event->category->nama_kategori }}</td>
                     <td>{{ $event->tgl_event }}</td>
+                    <!-- <td>
+                        <a href="/detail" class="btn btn-primary tombol2" style="width:110%">Detail</a>
+                    </td> -->
                     <td>
                         <a href="/dashboard/events/{{ $event->slug }}" class="btn btn-primary tombol2">Detail</a>
                     </td>

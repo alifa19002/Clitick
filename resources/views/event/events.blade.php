@@ -26,22 +26,22 @@
     <div class="container" style="margin-top:50px">
         <h1 id="titleEvents">{{ $title }}</h1>
 
-        <div class="row justify-content-center mb-3">
+        <!-- <div class="row justify-content-center mb-3">
             <div class="col-md-6">
                 <form action="/events">
                     @if(request('category'))
                         <input type="hidden" name="category" value="{{ request('category') }}">
                     @endif
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-3" id="searchbox">
                         <input type="text" class="form-control" placeholder="Search.." name="search" value="{{ request('search') }}">
                         <button class="btn btn-primary" type="submit">Search</button>
-                      </div>                  
+                    </div>                  
                 </form>
             </div>
-        </div>
-
+        </div> -->
         <div class="d-flex justify-content-end" id="sortby">
-        <p>Sort by</p>
+
+        <!-- <p>Sort by</p>
             <div class="col-lg-1 col-sm-2 col-xs-2 ml-auto">
                 <div class="dropdown">
                     <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">Terbaru<i class="fas fa-chevron-down"></i></button>
@@ -50,6 +50,17 @@
                         <li><a href="#">Terpopuler</a></li>
                     </ul>
                 </div>
+            </div> -->
+            <div class="col-md-3" >
+                <form action="/events">
+                    @if(request('category'))
+                        <input type="hidden" name="category" value="{{ request('category') }}">
+                    @endif
+                    <div class="input-group" id="searchbox">
+                        <input class="search-txt" type="text" class="form-control" placeholder="Search.." name="search" value="{{ request('search') }}">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </div>                  
+                </form>
             </div>
             
             <p>Category</p>
@@ -69,7 +80,11 @@
         <div class="row justify-content" id="eventPreview">
             @foreach ($events as $event)
                 <div class="col-6">
+<<<<<<< HEAD
                     <a href="/detail"><img src="/storage/{{ $event->poster }}" width="148,5px" height="210px" style="float:left" alt=""></a>
+=======
+                    <a href="/detail"><img src="{{ asset('storage/' . $event->poster) }}" width="148,5px" height="210px" style="float:left" alt=""></a>
+>>>>>>> e818f4bc87c5298c3202bbd26b49d51a5d87e6c8
                     <h5><a href="/events/{{ $event->slug }}" style="text-decoration:none; color:#181B32; opacity:90%">{{ $event->nama_event }}</a></h5>
                     <p>{{ $event->tgl_event }}</p>
                     <a href="/events?category={{ $event->category->nama_kategori }}" class="btn">{{ $event->category->nama_kategori }}</a>
@@ -78,7 +93,7 @@
         </div>
     </div>
 
-    <div class="d-flex justify-content-end">
+    <div class="d-flex justify-content-center">
         {{ $events->links() }}
     </div>
 

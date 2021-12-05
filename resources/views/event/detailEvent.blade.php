@@ -30,8 +30,8 @@
     <div class="container">
         <div class="row justify-content-md-center" id="poster">
             <div class="col-md-5 text-center">
-                <img src="{{ asset('storage/' . $event->poster) }}" width="80%" alt="contoh">
-                <button class="bt1 btn btn-success mt-3 " type="submit">JOIN THIS EVENT!</button>
+                <img class="mt-5" src="{{ asset('storage/' . $event->poster) }}" width="70%" alt="contoh">
+                <a href="https:/youtube.com"><button class="bt1 btn btn-success mt-3 " type="submit">JOIN THIS EVENT!</button></a>
             </div>
             <div class="desc col-md-5" style="color: white">
                 <h1 class="mt-5"><b>{{ $event->nama_event }}</b></h1>
@@ -43,9 +43,9 @@
                 </div>
                 <div class="desc mt-4">
                     <h5><i class="bi bi-exclamation-lg" style="color: red"></i>Mark the date for THINK CLICK<i class="bi bi-exclamation-lg" style="color: red"></i></h5>
-                    <p><i class="bi bi-calendar-date"></i> Saturday, XX November 2021
-                    <br><i class="bi bi-clock"></i>  00.00 - Finish
-                    <br><i class="bi bi-pin-angle"></i>  Location</p>
+                    <p><i class="bi bi-calendar-date"></i> {{ $event->tgl_event }}
+                    {{-- <br><i class="bi bi-clock"></i>  00.00 - Finish --}}
+                    <br><i class="bi bi-pin-angle"></i> {{ $event->domisili_id }}</p>
                 </div>
                 <div class="desc mt-4">
                     <h5><i class="bi bi-exclamation-lg" style="color: red"></i>Registration Link<i class="bi bi-exclamation-lg" style="color: red"></i></h5s>
