@@ -76,15 +76,7 @@
                     <button style="float: right" class="btn btn-secondary" type="" ><i class="far fa-folder-open"></i></button>
                 </div> -->
             </div>
-            <!-- <div class="form-group row col-md-11">
-                <div class="form-group row col-md-10">
-                    <label for="bukti-event">Upload Bukti Pembayaran</label>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="form-group col-sm mt-4">
-                    <button style="float: right" class="btn btn-secondary" type=""><i class="far fa-folder-open"></i></button>
-                </div>
-            </div> -->
+            <!-- 66 -->
             @auth
             <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
             @endauth

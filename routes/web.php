@@ -5,6 +5,7 @@ use App\Models\Event;
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\LoginController;
@@ -60,7 +61,8 @@ Route::get('/profile/{username}', function ($username) {
     $username = User::where('username', $username)->first()->username;
     $id = User::where('username', $username)->first()->id;
     $my_events = Event::where('user_id', $id)->get();
-    return view('/user/profile', compact(['title', 'my_events']));
+    $category = Category::all();
+    return view('/user/profile', compact(['title', 'my_events', 'category']));
 });
 
 Route::get('/editprofile', function () {

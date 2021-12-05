@@ -22,11 +22,11 @@ class PengajuanController extends Controller
     }
     public function store(Request $request)
     {
-            $uploadPath = public_path('poster');
+            $uploadPath = public_path('storage/poster');
 
-            if(!File::isDirectory($uploadPath)) {
-                File::makeDirectory($uploadPath, 0755, true, true);
-            }
+            // if(!File::isDirectory($uploadPath)) {
+            //     File::makeDirectory($uploadPath, 0755, true, true);
+            // }
             if(($file = $request->file('poster')) == NULL)
                 echo "gada file";
             else
@@ -41,7 +41,7 @@ class PengajuanController extends Controller
             'category_id' => request('category_id'),
             'user_id' => request('user_id'),
             'domisili_id' => request('domisili_id'),
-            'poster' => $uniqueFileName,
+            'poster' => 'poster/'.$uniqueFileName,
             'slug' => Str::replace(' ', '-', Str::lower(request('nama_event')))
         ]);
         
