@@ -23,35 +23,36 @@
     
     <!-- Content -->
     <div class="container bg-dark text-white col-md-8 justify-content-center py-3 my-3 ">
-        <h4 style="text-align: center">Pembayaran Event {{ $event->nama_event }}</h4> <br>    
+        <h4 style="text-align: center">Pembayaran Event</h4> <br>    
         <form method="POST" action="/pembayaran" class="offset-md-1" enctype="multipart/form-data">
             @csrf
+            <input type="hidden" name="event_id" id="event_id" value={{ $events->id }}>
             <div class="form-group row col-md-11">
-                <label for="institusi-event">Metode Pembayaran</label>
+                <label for="metode_pembayaran">Metode Pembayaran</label>
                 <input type="text" class="form-control" name="metode_pembayaran" value="metode_pembayaran">
             </div>
             
             <div class="form-group row col-md-11">
-                <label for="captiom-event">Tanggal Transfer</label>
+                <label for="tgl_transfer">Tanggal Transfer</label>
                 <input type="date" class="form-control" name="tgl_transfer" value="{{ old('tgl_transfer') }}">
             </div>
             <div class="form-group row col-md-11">
-                <label for="nama-event">Jumlah Transfer</label>
+                <label for="jml_transfer">Jumlah Transfer</label>
                 <input type="text" class="form-control" name="jml_transfer" value="{{ old('jml_transfer') }}">
             </div>
             <div class="form-group row col-md-11">
                 <div class="form-group row col-md-10">
-                    <label for="upload-event">Upload Bukti Pembayaran</label>
-                    <input type="file" class="form-control" name="payment">
+                    <label for="bukti_bayar">Upload Bukti Pembayaran</label>
+                    <input type="file" class="form-control" name="bukti_bayar">
                 </div>
                 <!-- <div class="form-group col-sm mt-4">
                     <button style="float: right" class="btn btn-secondary" type="" ><i class="far fa-folder-open"></i></button>
                 </div> -->
             </div>
             <!-- 66 -->
-            @foreach($events as event)
+            {{-- @foreach($events as event)
             <input type="hidden" name="id_event" value="{{ event->id }}">
-            @endforeach
+            @endforeach --}}
             <div class="form-submit col-sm-11 py-3">
                 <button style="float: right" class="btn btn-primary" type="submit">Submit</button>
                 <br><br>

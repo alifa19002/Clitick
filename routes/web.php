@@ -13,6 +13,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardEventController;
 use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PembayaranController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -75,8 +76,8 @@ Route::get('/editprofile', function () {
 Route::get('/events', [EventController::class, 'index']);
 Route::get('/events/{event:slug}', [EventController::class, 'show']);
 
-Route::get('/events/{id}', [PembayaranController::class, 'index'])->middleware('auth');
-Route::get('/events', [PembayaranController::class, 'store']);
+Route::get('/pembayaran/{id}', [PembayaranController::class, 'index'])->middleware('auth');
+Route::post('/pembayaran', [PembayaranController::class, 'store']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);

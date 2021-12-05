@@ -108,11 +108,7 @@
                                     </td>
                                     
                                     <td>
-                                    <!-- @if($my_events->count())
-                                        <a href="" class="btn btn-primary tombol2">Sudah Dibayarkan</a>
-                                    @else -->
                                         <a href="/pembayaran/{{ $event->id }}" class="btn btn-primary tes">Belum Dibayar</a>
-                                    <!-- @endif -->
                                     </td>
                                     
                                     <td>
