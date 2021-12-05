@@ -37,6 +37,7 @@ class PengajuanController extends Controller
             'institusi_penyelenggara' => request('institusi_penyelenggara'),
             'tgl_event' => request('tgl_event'),
             'deskripsi_event' => request('deskripsi_event'),
+            'link_reg' => request('link_reg'),
             'status_event' => request('status_event'),
             'category_id' => request('category_id'),
             'user_id' => request('user_id'),

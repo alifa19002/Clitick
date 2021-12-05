@@ -59,6 +59,12 @@
                         </p></td>
                     </tr>
                     <tr>
+                        <th>Link Registrasi</th>
+                        <td><p style="text-align: justify">
+                            {{ $events->link_reg }}
+                        </p></td>
+                    </tr>
+                    <tr>
                         <th>Tanggal Event</th>
                         <td>{{ $events->tgl_event }}</td>
                     </tr>

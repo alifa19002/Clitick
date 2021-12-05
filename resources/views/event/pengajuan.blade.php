@@ -67,6 +67,10 @@
                 <textarea type="text" class="form-control" name="deskripsi_event" value="{{ old('deskripsi_event') }}"></textarea>
             </div>
             <div class="form-group row col-md-11">
+                <label for="link-event">Link Registrasi</label>
+                <input type="text" class="form-control" name="link_reg" value="{{ old('link_reg') }}">
+            </div>
+            <div class="form-group row col-md-11">
                 <div class="form-group row col-md-10">
                     <label for="upload-event">Upload Poster</label>
                     <input type="file" class="form-control" name="poster">

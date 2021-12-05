@@ -19,6 +19,7 @@ class CreateEventsTable extends Migration
             $table->string('institusi_penyelenggara');
             $table->date('tgl_event');
             $table->text('deskripsi_event');
+            $table->string('link_reg');
             $table->string('status_event');
             $table->foreignId('category_id');
             $table->foreignId('user_id');

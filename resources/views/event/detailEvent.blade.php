@@ -31,7 +31,7 @@
         <div class="row justify-content-md-center" id="poster">
             <div class="col-md-5 text-center">
                 <img class="mt-5" src="{{ asset('storage/' . $event->poster) }}" width="70%" alt="contoh">
-                <a href="https:/youtube.com"><button class="bt1 btn btn-success mt-3 " type="submit">JOIN THIS EVENT!</button></a>
+                <a href="https://{{ $event->link_reg }}"><button class="bt1 btn btn-success mt-3 " type="submit">JOIN THIS EVENT!</button></a>
             </div>
             <div class="desc col-md-5" style="color: white">
                 <h1 class="mt-5"><b>{{ $event->nama_event }}</b></h1>
@@ -49,7 +49,7 @@
                 </div>
                 <div class="desc mt-4">
                     <h5><i class="bi bi-exclamation-lg" style="color: red"></i>Registration Link<i class="bi bi-exclamation-lg" style="color: red"></i></h5s>
-                    <br><a href="">bit.ly/blablabla</a>
+                    <br><a href="https://{{ $event->link_reg }}">{{ $event->link_reg }}</a>
                 </div>
                 <hr>
                 <div class="desc mt-3">
