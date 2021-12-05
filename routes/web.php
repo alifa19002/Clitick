@@ -7,13 +7,13 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardEventController;
 use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\PembayaranController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*

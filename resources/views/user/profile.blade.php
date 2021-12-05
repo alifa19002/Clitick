@@ -108,7 +108,7 @@
                                     </td>
                                     
                                     <td>
-                                        <a href="/pembayaran/{{ $event->id }}" class="btn btn-primary tes">Belum Dibayar</a>
+                                        <a href="/pembayaran/{{ $event->id }}" class="btn btn-primary">Belum Dibayar</a>
                                     </td>
                                     
                                     <td>
