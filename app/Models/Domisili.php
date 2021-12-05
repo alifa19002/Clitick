@@ -11,6 +11,6 @@ class Domisili extends Model
 
     public function domisilis()
     {
-        return $this->hasMany(Post::class);
+        return $this->hasMany(Event::class);
     }
 }

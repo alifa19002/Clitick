@@ -59,4 +59,9 @@ class Event extends Model
             ]
         ];
     }
+
+    public function payment()
+    {
+        return $this->belongsTo(Payment::class, 'event_id');
+    }
 }

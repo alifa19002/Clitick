@@ -77,7 +77,7 @@ Route::get('/events', [EventController::class, 'index']);
 Route::get('/events/{event:slug}', [EventController::class, 'show']);
 
 Route::get('/pembayaran/{id}', [PembayaranController::class, 'index'])->middleware('auth');
-Route::get('/pembayaran', [PembayaranController::class, 'store']);
+Route::post('/pembayaran', [PembayaranController::class, 'store']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);

@@ -23,27 +23,30 @@
     
     <!-- Content -->
     <div class="container bg-dark text-white col-md-8 justify-content-center py-3 my-3 ">
+<<<<<<< HEAD
         
+=======
+>>>>>>> b3b0c818144be3271a9501e82b9a5eb30421a87a
         <h4 style="text-align: center">Pembayaran Event</h4> <br>    
         <form method="POST" action="/pembayaran" class="offset-md-1" enctype="multipart/form-data">
             @csrf
-            
+            <input type="hidden" name="event_id" id="event_id" value={{ $events->id }}>
             <div class="form-group row col-md-11">
-                <label for="metode-payment">Metode Pembayaran</label>
-                <input type="text" class="form-control" name="metode_pembayaran" value="{{ old('metode_pembayaran') }}">
+                <label for="metode_pembayaran">Metode Pembayaran</label>
+                <input type="text" class="form-control" name="metode_pembayaran" value="metode_pembayaran">
             </div>
             
             <div class="form-group row col-md-11">
-                <label for="tanggal-payment">Tanggal Transfer</label>
+                <label for="tgl_transfer">Tanggal Transfer</label>
                 <input type="date" class="form-control" name="tgl_transfer" value="{{ old('tgl_transfer') }}">
             </div>
             <div class="form-group row col-md-11">
-                <label for="jumlah-payment">Jumlah Transfer</label>
+                <label for="jml_transfer">Jumlah Transfer</label>
                 <input type="text" class="form-control" name="jml_transfer" value="{{ old('jml_transfer') }}">
             </div>
             <div class="form-group row col-md-11">
                 <div class="form-group row col-md-10">
-                    <label for="upload-payment">Upload Bukti Pembayaran</label>
+                    <label for="bukti_bayar">Upload Bukti Pembayaran</label>
                     <input type="file" class="form-control" name="bukti_bayar">
                 </div>
                 <!-- <div class="form-group col-sm mt-4">
@@ -51,9 +54,15 @@
                 </div> -->
             </div>
             <!-- 66 -->
+<<<<<<< HEAD
             @foreach($events as $event)
             <input type="hidden" name="id_event" value="{{ $events->id }}">
             @endforeach
+=======
+            {{-- @foreach($events as event)
+            <input type="hidden" name="id_event" value="{{ event->id }}">
+            @endforeach --}}
+>>>>>>> b3b0c818144be3271a9501e82b9a5eb30421a87a
             <div class="form-submit col-sm-11 py-3">
                 <button style="float: right" class="btn btn-primary" type="submit">Submit</button>
                 <br><br>
