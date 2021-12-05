@@ -27,11 +27,15 @@
     <div class="container">
         <div class="row justify-content-md-center">
             <div class="content" id="top-content">
-                <img src="{{ asset('images/foto-profil.png') }}" width="280px" style="float:left" alt="">
+                @if($profilUser->foto_profil)
+                <img src="{{ asset('storage/' . $profilUser->foto_profil) }}" width="280px" style="float:left" alt="">
+                @else
+                <img src="{{ asset('images/foto-profil.png') }}" alt="" width="280px" style="float:left" alt="">
+                @endif
                 <h5>Hi,</h5>
                 <h4>{{ auth()->user()->username }}</h4>
                 <h6>{{ auth()->user()->email }}</h6>
-                <a class="btn btn-primary" href="/editprofile">Edit Profil</a>
+                <a class="btn btn-primary" href="/profile/{{ auth()->user()->username }}/edit">Edit Profil</a>
             </div>
         </div>
     </div>
@@ -52,19 +56,19 @@
                     <div class="row justify-content" id="bottom-content">
                         <div class="col-6">
                             <h6>NAMA</h6>
-                            <p>{{ auth()->user()->name }}</p>
+                            <p> {{ $profilUser->name }}</p>
                         </div>
                         <div class="col-6">
                             <h6>JENIS KELAMIN</h6>
-                            <p>{{ auth()->user()->jk }}</p>
+                            <p>{{ $profilUser->jk }}</p>
                         </div>
                         <div class="col-6">
                             <h6>EMAIL</h6>
-                            <p>{{ auth()->user()->email }}</p>
+                            <p>{{ $profilUser->email }}</p>
                         </div>
                         <div class="col-6">
                             <h6>NO TELEPON</h6>
-                            <p>{{ auth()->user()->no_telp }}</p>
+                            <p>{{ $profilUser->no_telp }}</p>
                         </div>
                     </div>
                 </div>

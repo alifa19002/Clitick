@@ -11,6 +11,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardEventController;
 use App\Http\Controllers\PengajuanController;
+use App\Http\Controllers\UserController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -69,24 +70,6 @@ Route::get('/editprofile', function () {
     ]);
 });
 
-Route::get('/rekap', function () {
-    return view('/admin/rekap', [
-        "title" => "Rekap Event"
-    ]);
-});
-
-Route::get('/request', function () {
-    return view('/admin/request', [
-        "title" => "Request Event"
-    ]);
-});
-
-Route::get('/detailRequestEvent', function () {
-    return view('/admin/detail-request', [
-        "title" => "Detail Request Event"
-    ]);
-});
-
 Route::get('/events', [EventController::class, 'index']);
 Route::get('/events/{event:slug}', [EventController::class, 'show']);
 
@@ -108,3 +91,4 @@ Route::get('/dashboard/request', function () {
 
 Route::get('/dashboard/events/checkSlug', [DashboardEventController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/events', DashboardEventController::class)->middleware('auth');
+Route::resource('/profile', UserController::class)->middleware('auth');

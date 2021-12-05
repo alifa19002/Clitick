@@ -19,7 +19,7 @@ class EventController extends Controller
             'title' => 'All Events' . $title,
             'active' => 'events',
             'categories' => Category::all(),
-            'events' => Event::latest()->filter(request(['search', 'category']))->paginate(10)->withQueryString()
+            'events' => Event::latest()->where('status_event', "Accepted")->filter(request(['search', 'category']))->paginate(10)->withQueryString()
         ]);
     }
 

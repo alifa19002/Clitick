@@ -31,7 +31,7 @@
                       Welcome back, {{ auth()->user()->username }}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="/profile/{{ auth()->user()->username }}"><i class="fas fa-user"></i> My Profile</a></li>
+                      <li><a class="dropdown-item" href="/profile"><i class="fas fa-user"></i> My Profile</a></li>
                       <li><hr class="dropdown-divider"></li>
                       <li>
                           <form action="/logout" method="post">

@@ -30,7 +30,7 @@
     <div class="container">
         <div class="row justify-content-md-center" id="poster">
             <div class="col-md-5 text-center">
-                <img class="mt-5" src="{{ asset('poster/' . $event->poster) }}" width="70%" alt="contoh">
+                <img class="mt-5" src="{{ asset('storage/' . $event->poster) }}" width="70%" alt="contoh">
                 <a href="https:/youtube.com"><button class="bt1 btn btn-success mt-3 " type="submit">JOIN THIS EVENT!</button></a>
             </div>
             <div class="desc col-md-5" style="color: white">

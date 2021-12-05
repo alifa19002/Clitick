@@ -104,7 +104,7 @@
                 @enderror
             </div>
             <div class="form-group row col-md-11">
-                <input type="hidden" class="form-control @error('status_event') is-invalid @enderror" id="status_event" name="status_event" required value="diajukan">
+                <input type="hidden" class="form-control @error('status_event') is-invalid @enderror" id="status_event" name="status_event" required value="Requested">
             </div>
             <div class="form-group row col-md-11">
                 <input type="hidden" class="form-control @error('user_id') is-invalid @enderror" id="user_id" name="user_id" required value={{ auth()->user()->id }}>
