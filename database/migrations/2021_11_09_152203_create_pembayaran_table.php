@@ -13,13 +13,14 @@ class CreatePembayaranTable extends Migration
      */
     public function up()
     {
-        Schema::create('pembayaran', function (Blueprint $table) {
+        Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('id_event')->constrained('event');
+            $table->foreignId('id_event')->constrained('events');
             $table->date('tgl_transfer');
             $table->char('metode_pembayaran', 20);
             $table->double('jml_transfer', 8, 2);
+            $table->char('bukti_bayar', 50);
         });
     }
 

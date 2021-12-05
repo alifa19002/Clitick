@@ -93,6 +93,7 @@
                                     {{-- <th>Kategori Event</th> --}}
                                     <th>Tanggal Event</th>
                                     <th>Status</th>
+                                    <th>Status Pembayaran</th>
                                     <th>Action</th>
                                 </tr>
                                 @foreach($my_events as $event)
@@ -105,6 +106,15 @@
                                     <td>
                                         <a href="#" class="btn btn-primary tombol2">{{ $event->status_event }}</a>
                                     </td>
+                                    
+                                    <td>
+                                    <!-- @if($my_events->count())
+                                        <a href="" class="btn btn-primary tombol2">Sudah Dibayarkan</a>
+                                    @else -->
+                                        <a href="/pembayaran/{{ $event->id }}" class="btn btn-primary tes">Belum Dibayar</a>
+                                    <!-- @endif -->
+                                    </td>
+                                    
                                     <td>
                                         <a href="/editevent"><i class="far fa-edit fa-lg"></i></a>
                                         <a href="#"><i class="far fa-trash-alt fa-lg"></i></a>
