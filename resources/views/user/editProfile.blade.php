@@ -30,17 +30,17 @@
                   <h2 style="text-align: center" class="edit mt-3 mb-3">Edit Profile</h2>
                 </div>
                 <form method="post" action="/profile/{{ $profilUser->username }}" enctype="multipart/form-data">
-                  <div class="col-md-8" style="margin-left:150px">
+                  <div class="col-md-10" style="margin-left:65px; margin-bottom:20px">
                     <input type="hidden" name="oldImage" value="{{ $profilUser->foto_profil }}">
                     @if ($profilUser->foto_profil)
                     <img src="{{ asset('storage/' . $profilUser->foto_profil) }}"  style="float:left" alt="" class="img-preview mb-3">
                     @else
                     <img src="{{ asset('images/foto-profil.png') }}" width="180px" style="float:left" alt="" class="img-preview">
                     @endif
-                    <h5 class="edit mt-5 mb-3">Hallo, </h5>
+                    <h5 class="edit mt-5 mb-3">Hello, </h5>
                     <p class="edit mb-2">You can fill this form to update your profile!</p>
                     {{-- <label class="mt-5">Edit Foto Profil</label> --}}
-                    <input class="form-control @error('foto_profil') is-invalid @enderror mt-5" type="file" id="foto_profil" name="foto_profil" onchange="previewImage()">
+                    <input style="width:93.8%" class="form-control @error('foto_profil') is-invalid @enderror mt-5" type="file" id="foto_profil" name="foto_profil" onchange="previewImage()">
                     @error('foto_profil')
                     <div class="invalid-feedback">
                         {{ $message }}

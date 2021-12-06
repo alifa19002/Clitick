@@ -30,8 +30,8 @@
     @include('template.navbar')
     
     <div class="container bg-dark text-white col-md-8 justify-content-center py-3 my-3 ">
-    <div class="form-group row col-md-11">
-        <h4 style="text-align: center">Tambahkan Event</h4> <br>    
+    <!-- <div class="form-group row col-md-11"> -->
+        <h4 style="text-align: center; margin-top:30px">Tambahkan Event</h4> <br>    
         <form method="post" action="/dashboard/events" class="offset-md-1" enctype="multipart/form-data">
             @csrf
             <div class="form-group row col-md-11">
@@ -146,9 +146,11 @@
                 <input id="body" type="hidden" name="body" value="{{ old('body') }}">
                 <trix-editor input="body"></trix-editor>
             </div> --}}
-            <button type="submit" class="btn btn-primary mt-3 mb-3">Create Event</button>
+            <div class="row col-md-11 mt-3" style="margin-bottom:30px">
+                <button style="width:30%; margin-left:35%; border-radius:50px" type="submit" class="btn btn-primary mt-3 mb-3">Create Event</button>
+            </div>
           </form>
-    </div>
+    <!-- </div> -->
     </div>
 
     <!-- Footer -->

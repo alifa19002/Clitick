@@ -26,7 +26,7 @@
 
     
     <div class="container bg-dark text-white col-md-8 justify-content-center py-3 my-3 ">
-        <h4 style="text-align: center; color: white">Form Edit Event</h4> <br> 
+        <h4 style="text-align: center; color: white; margin-top:30px">Form Edit Event</h4> <br> 
         <form method="post" action="/dashboard/events/{{ $event->slug }}" class="offset-md-1" enctype="multipart/form-data">
             @method('put')
             @csrf
@@ -122,7 +122,7 @@
             <div class="mb-3">
                 <input type="hidden" class="form-control @error('user_id') is-invalid @enderror" id="user_id" name="user_id" required value={{ auth()->user()->id }}>
             </div>
-            <div class="mb-3">
+            <div class="row col-md-11 mt-3" style="margin-bottom:40px">
                 <label for="poster" class="form-label">Upload Image</label>
                 <input type="hidden" name="oldImage" value="{{ $event->poster }}">
                 @if ($event->poster)
@@ -136,8 +136,10 @@
                     {{ $message }}
                 </div>
                 @enderror
+            </div>
+            <div class="row col-md-11 mt-3" style="margin-bottom:30px">
+                <button style="width:30%; margin-left:35%; border-radius:50px" type="submit" class="btn btn-primary">Update Event</button>
             </div>    
-            <button type="submit" class="btn btn-primary">Update Event</button>
           </form>
     </div>
 

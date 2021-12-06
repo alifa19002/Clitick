@@ -36,8 +36,8 @@
         </div>
         @endif
         
-        <a style="float: right" href="/dashboard/events/create" class="btn btn-primary mb-3">Add new event</a>
-        <a href="/dashboard/request" class="btn btn-success mb-3">Requested Event</a>
+        <a style="float: right; border-radius:50px" href="/dashboard/events/create" class="btn btn-primary mb-3">Add new event</a>
+        <a style="border-radius:50px" href="/dashboard/request" class="btn btn-success mb-3">Requested Event</a>
         <div class="row justify-content-md-center">
             @if($events->count())
             <table class="table table-striped table-bordered table-responsive-md css-serial" style="text-align:center">
@@ -64,10 +64,10 @@
                     <td>{{ $event->status_event }}</td>
                     <td>
                         <a href="/dashboard/events/{{ $event->slug }}/edit" class="btn btn-warning tombol2">Edit</a>
-                        <form action="/dashboard/events/{{ $event->slug }}" method="post" class="d-inline">
+                        <form action="/dashboard/events/{{ $event->slug }}" method="post" class="d-inline-flex">
                             @method('delete')
                             @csrf
-                            <button class="btn btn-danger border-0 tombol2" onclick="return confirm('Apakah Anda yakin ingin menghapus data?')">Hapus</button>
+                            <button class="btn btn-danger tombol2" onclick="return confirm('Apakah Anda yakin ingin menghapus data?')">Hapus</button>
                         </form>
                     </td>
                 </tr>
