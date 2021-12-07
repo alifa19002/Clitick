@@ -22,16 +22,16 @@ class PengajuanController extends Controller
     }
     public function store(Request $request)
     {
-            $uploadPath = public_path('storage/poster');
+        $uploadPath = public_path('storage/poster');
 
-            // if(!File::isDirectory($uploadPath)) {
-            //     File::makeDirectory($uploadPath, 0755, true, true);
-            // }
-            if(($file = $request->file('poster')) == NULL)
-                echo "gada file";
-            else
+        // if(!File::isDirectory($uploadPath)) {
+        //     File::makeDirectory($uploadPath, 0755, true, true);
+        // }
+        if (($file = $request->file('poster')) == NULL)
+            echo "gada file";
+        else
             $uniqueFileName = uniqid() . $request->nama_event . '.' . $file->getClientOriginalExtension();
-            $file->move($uploadPath, $uniqueFileName);
+        $file->move($uploadPath, $uniqueFileName);
         Event::create([
             'nama_event' => request('nama_event'),
             'institusi_penyelenggara' => request('institusi_penyelenggara'),
@@ -42,12 +42,12 @@ class PengajuanController extends Controller
             'category_id' => request('category_id'),
             'user_id' => request('user_id'),
             'domisili_id' => request('domisili_id'),
-            'poster' => 'poster/'.$uniqueFileName,
+            'poster' => 'poster/' . $uniqueFileName,
             'slug' => Str::replace(' ', '-', Str::lower(request('nama_event')))
         ]);
-        
+
         //User::create($validatedData);
-        
+
         return redirect('/pengajuan');
     }
 }

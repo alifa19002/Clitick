@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset("css/style.css") }} " >
     <title>CLITICK | {{ $title }}</title>
 
+
     {{-- Trix Editor --}}
     <link rel="stylesheet" type="text/css" href="/css/trix.css">
     <script type="text/javascript" src="/js/trix.js"></script>
@@ -34,6 +35,7 @@
             color: black;
         }
     </style>
+
   </head>
   <body>
       <!-- navbar -->
@@ -44,7 +46,7 @@
     
     <div class="container bg-dark text-white col-md-8 justify-content-center py-3 my-3 ">
         <h4 style="text-align: center; color: white; margin-top:30px">Form Edit Event</h4> <br> 
-        <form method="post" action="/dashboard/events/{{ $event->slug }}" class="offset-md-1" enctype="multipart/form-data">
+        <form method="post" action="/events/{{ $event->slug }}" class="offset-md-1" enctype="multipart/form-data">
             @method('put')
             @csrf
             <div class="form-group row col-md-11">
@@ -175,6 +177,7 @@
         .then(response => response.json())
         .then(data => slug.value = data.slug)
     });
+
 
     document.addEventListener('trix-file-accept', function(e) {
         e.preventDefault();

@@ -58,7 +58,7 @@ class DashboardEventController extends Controller
             'category_id' => 'required',
             'user_id' => 'required',
             'domisili_id' => 'required',
-            'poster' => 'image|file|max:1024',
+            'poster' => 'image|file|max:5000',
         ]);
 
         if ($request->file('poster')) {
@@ -120,11 +120,11 @@ class DashboardEventController extends Controller
             'category_id' => 'required',
             'user_id' => 'required',
             'domisili_id' => 'required',
-            'poster' => 'image|file|max:1024',
+            'poster' => 'image|file|max:5000',
         ];
 
         if ($request->slug != $event->slug) {
-            $rules['slug'] = 'required|unique:posts';
+            $rules['slug'] = 'required|unique:events';
         }
 
         $validatedData = $request->validate($rules);

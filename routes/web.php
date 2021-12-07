@@ -76,6 +76,9 @@ Route::get('/editprofile', function () {
 
 Route::get('/events', [EventController::class, 'index']);
 Route::get('/events/{event:slug}', [EventController::class, 'show']);
+Route::get('/events/{event:slug}/edit', [EventController::class, 'edit']);
+Route::put('/events/{event:slug}', [EventController::class, 'update']);
+Route::delete('/events/{event:slug}', [EventController::class, 'destroy']);
 
 Route::get('/pembayaran/{id}', [PembayaranController::class, 'index'])->middleware('auth');
 Route::post('/pembayaran', [PembayaranController::class, 'store']);

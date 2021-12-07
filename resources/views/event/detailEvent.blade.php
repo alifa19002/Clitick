@@ -41,13 +41,8 @@
                 <hr>
                 <div class="desc mt-5">
                     <h3>Deskripsi Event</h3>
-                    <p>{{ $event->deskripsi_event }}</p>
+                    <p>{!! $event->deskripsi_event !!}</p>
                 </div>
-                {{-- <div class="desc mt-4">
-                    <h5><i class="bi bi-exclamation-lg" style="color: red"></i>Mark the date for THINK CLICK<i class="bi bi-exclamation-lg" style="color: red"></i></h5>
-                    <p><i class="bi bi-calendar-date"></i> {{ $event->tgl_event }}
-                    <br><i class="bi bi-pin-angle"></i> {{ $event->domisili->nama_domisili }}</p>
-                </div> --}}
                 <div class="desc mt-4">
                     <h5><i class="bi bi-exclamation-lg" style="color: red"></i>Registration Link<i class="bi bi-exclamation-lg" style="color: red"></i></h5s>
                     <br><a href="https://{{ $event->link_reg }}">{{ $event->link_reg }}</a>

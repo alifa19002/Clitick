@@ -16,6 +16,24 @@
     <!-- My CSS -->
     <link rel="stylesheet" href="css/style.css">
     <title>CLITICK | {{ $title }}</title>
+
+    
+    {{-- Trix Editor --}}
+    <link rel="stylesheet" type="text/css" href="/css/trix.css">
+    <script type="text/javascript" src="/js/trix.js"></script>
+    
+    <style>
+        trix-toolbar [data-trix-button-group ="file-tools"] {
+            display: none;
+        }
+        .trix-button-group button {
+            background-color: white;
+        }
+        trix-editor {
+            background-color: white;
+            color: black;
+        }
+    </style>
   </head>
   <body class="bg">
     <!-- navbar -->
@@ -27,19 +45,15 @@
         <form method="POST" action="/pengajuan" class="offset-md-1" enctype="multipart/form-data">
             @csrf
             <div class="form-group row col-md-11">
-                <label for="nama-event">Nama Event</label>
+                <label for="nama_event">Nama Event</label>
                 <input type="text" class="form-control" name="nama_event" value="{{ old('nama_event') }}">
             </div>
-            {{-- <div class="form-group row col-md-11">
-                <label for="deskripsi-event">Deskripsi Event</label>
-                <input type="text" class="form-control" name="deskripsi_event" value="{{ old('deskripsi_event') }}">
-            </div> --}}
             <div class="form-group row col-md-11">
-                <label for="institusi-event">Institusi Penyelenggara</label>
+                <label for="institusi_penyelenggara">Institusi Penyelenggara</label>
                 <input type="text" class="form-control" name="institusi_penyelenggara" value="{{ old('institusi_penyelenggara') }}">
             </div>
             <div class="form-group row col-md-11">
-                <label for="kategori-event">Kategori Event</label>
+                <label for="category_id">Kategori Event</label>
                 <select type="text" class="form-select" name="category_id" value="{{ old('category_id') }}">
                     <option value=""></option>
                     @foreach ($categories as $category)
@@ -49,7 +63,7 @@
                 <!-- belum disambung dengan tabel kategori -->
             </div>
             <div class="form-group row col-md-11">
-                <label for="domisili-event">Domisili</label>
+                <label for="domisili_id">Domisili</label>
                 <select type="text" class="form-select" name="domisili_id" value="{{ old('domisili_id') }}">
                     <option value=""></option>
                     @foreach ($domisili as $domisilis)
@@ -59,15 +73,20 @@
                 <!-- belum di sambung dengan tabel domisili -->
             </div>
             <div class="form-group row col-md-11">
-                <label for="captiom-event">Tanggal Event</label>
+                <label for="tgl_event">Tanggal Event</label>
                 <input type="date" class="form-control" name="tgl_event" value="{{ old('tgl_event') }}">
             </div>
-            <div class="form-group row col-md-11">
-                <label for="captiom-event">Deskripsi</label>
-                <textarea type="text" class="form-control" name="deskripsi_event" value="{{ old('deskripsi_event') }}"></textarea>
+            <div class="form-group row col-md-11 mt-3">
+                <label for="deskripsi_event" class="form-label">Deskripsi Event</label>
+                @error('deskripsi_event')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
+                <input id="deskripsi_event" type="hidden" name="deskripsi_event" value="{{ old('deskripsi_event') }}">
+                <trix-editor input="deskripsi_event"></trix-editor>
             </div>
+
             <div class="form-group row col-md-11">
-                <label for="link-event">Link Registrasi</label>
+                <label for="link_reg">Link Registrasi</label>
                 <input type="text" class="form-control" name="link_reg" value="{{ old('link_reg') }}">
             </div>
             <div class="form-group row col-md-11">

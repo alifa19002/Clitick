@@ -55,7 +55,7 @@
                     <tr>
                         <th>Deskripsi</th>
                         <td><p style="text-align: justify">
-                            {{ $events->deskripsi_event }}
+                            {!! $events->deskripsi_event !!}
                         </p></td>
                     </tr>
                     <tr>

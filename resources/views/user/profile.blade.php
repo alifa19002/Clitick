@@ -76,6 +76,11 @@
                 <div class="tab-pane fade" id="pills-events" role="tabpanel" aria-labelledby="pills-profile-tab">
                     <!-- Event saya - kalo no data  -->
                     <div class="row justify-content-md-center">
+                        @if (session()->has('success'))
+                        <div class="alert alert-success col-lg-8" role="alert">
+                          {{ session('success') }}
+                        </div>
+                        @endif
 
                     <!-- Tinggal kasih conditions  -->
 
@@ -90,17 +95,18 @@
                                     <th>No</th>
                                     <th>Nama Event</th>
                                     <th>Penyelenggara</th>
-                                    {{-- <th>Kategori Event</th> --}}
+                                    <th>Kategori Event</th>
                                     <th>Tanggal Event</th>
                                     <th>Status Event</th>
                                     <th>Status Pembayaran</th>
+                                    <th>Aksi</th>
                                 </tr>
                                 @foreach($my_events as $event)
                                 <tr>
                                     <td></td>
                                     <td><a style="color: #4C4C4C" href="/events/{{ $event->slug }}">{{ $event->nama_event }}</a></td>
                                     <td>{{ $event->institusi_penyelenggara }}</td>
-                                    {{-- <td>{{ $event->nama_kategori}}</td> --}}
+                                    <td>{{ $event->category->nama_kategori}}</td>
                                     <td>{{ $event->tgl_event }}</td>
                                     <td>
                                         <a href="#" class="btn btn-primary tombol2">{{ $event->status_event }}</a>
@@ -115,6 +121,21 @@
                                         <a href="/pembayaran/{{ $event->id }}" class="btn btn-primary">Belum Dibayar</a>
                                         @else
                                         <a href="#" class="btn btn-primary">{{ $event->payment->status_pembayaran }}</a>
+                                        @endif
+                                    </td>
+
+                                    <td>
+                                        @if( $event->user_id == auth()->user()->id)
+                                        @if( $event->status_event == "Requested" && $event->payment_id == NULL)
+                                        <a href="/events/{{ $event->slug }}/edit" class="btn btn-primary">Edit</a>
+                                        <form action="/events/{{ $event->slug }}" method="post" class="d-inline-flex">
+                                            @method('delete')
+                                            @csrf
+                                            <button class="btn btn-danger tombol2" onclick="return confirm('Apakah Anda yakin ingin menghapus data?')">Hapus</button>
+                                        </form>
+                                        @else
+                                        <p>Anda tidak bisa lagi melakukan perubahan terhadap konten event</p>
+                                        @endif
                                         @endif
                                     </td>
                                 
