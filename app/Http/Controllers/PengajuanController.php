@@ -52,13 +52,7 @@ class PengajuanController extends Controller
 
             //User::create($validatedData);
 
-            return view('event.pengajuan', [
-                "title" => "Pengajuan Event",
-                'active' => 'categories',
-                'categories' => Category::all(),
-                'domisili' => Domisili::all(),
-                'message' => "Event berhasil diajukan!"
-            ]);
+            return redirect('/pengajuan')->with('success', 'Event berhasil diajukan.');
         }
     }
 }

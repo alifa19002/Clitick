@@ -136,7 +136,7 @@ class DashboardEventController extends Controller
             $validatedData['poster'] = $request->file('poster')->store('poster');
         }
 
-        $validatedData["user_id"] = auth()->user()->id;
+        $validatedData["user_id"] = $request->user_id;
 
         Event::where('id', $event->id)->update($validatedData);
         return redirect('/dashboard/events')->with('success', 'Post has been updated!');

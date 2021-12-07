@@ -94,6 +94,12 @@
                         <td>Belum Dibayar</td>
                         @endif
                     </tr>
+                    @if($events->payment_id != NULL && $events->payment->status_pembayaran == 'Sudah Dibayar')
+                    <tr>
+                        <th>Bukti Pembayaran</th>
+                        <td><img src="{{ asset('storage/' . $events->payment->bukti_bayar) }}" width=300px alt="#"></td>
+                    </tr>
+                    @endif
 
                     <tr>
                         <th>Action</th>
@@ -104,26 +110,26 @@
                             @csrf
                             <input type="hidden" name="event_id" id="event_id" value="{{ $events->id }}">
                             <input type="hidden" name="status_event" id="status_event" value="Payment">
-                            <button class="btn btn-success" type="submit">Confirm</button>
+                            <button class="btn btn-success tombol2" type="submit">Confirm</button>
                             </form>
                             <form method="POST" action="/dashboard/request/{{ $events->slug }}/accept">
                             @csrf
                             <input type="hidden" name="event_id" id="event_id" value="{{ $events->id }}">
                             <input type="hidden" name="status_event" id="status_event" value="Rejected">
-                            <button class="btn btn-danger mt-3" type="submit">Reject</button>
+                            <button class="btn btn-danger mt-3 tombol2" type="submit">Reject</button>
                             </form>
                             @elseif($events->payment_id != NULL )
                             <form method="POST" action="/dashboard/request/{{ $events->slug }}/accept">
                             @csrf
                             <input type="hidden" name="event_id" id="event_id" value="{{ $events->id }}">
                             <input type="hidden" name="status_event" id="status_event" value="Accepted">
-                            <button class="btn btn-success" type="submit">Accept</button>
+                            <button class="btn btn-success tombol2" type="submit">Accept</button>
                             </form>
                             <form method="POST" action="/dashboard/request/{{ $events->slug }}/accept">
                             @csrf
                             <input type="hidden" name="event_id" id="event_id" value="{{ $events->id }}">
                             <input type="hidden" name="status_event" id="status_event" value="Rejected">
-                            <button class="btn btn-danger mt-3" type="submit">Reject</button>
+                            <button class="btn btn-danger mt-3 tombol2" type="submit">Reject</button>
                             </form>
                             @endif
                         </td>
