@@ -127,11 +127,11 @@
                                     <td>
                                         @if( $event->user_id == auth()->user()->id)
                                         @if( $event->status_event == "Requested" && $event->payment_id == NULL)
-                                        <a href="/events/{{ $event->slug }}/edit" class="btn btn-primary tombol2" style="width:35%">Edit</a>
+                                        <a href="/events/{{ $event->slug }}/edit" class="btn btn-primary tombol2">Edit</a>
                                         <form action="/events/{{ $event->slug }}" method="post">
                                             @method('delete')
                                             @csrf
-                                            <button class="btn btn-danger tombol2" style="width:35%" onclick="return confirm('Apakah Anda yakin ingin menghapus data?')">Hapus</button>
+                                            <button class="btn btn-danger tombol2" onclick="return confirm('Apakah Anda yakin ingin menghapus data?')">Hapus</button>
                                         </form>
                                         @else
                                         <p>Anda tidak bisa lagi melakukan perubahan terhadap konten event</p>
