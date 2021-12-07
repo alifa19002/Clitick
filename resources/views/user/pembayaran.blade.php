@@ -28,6 +28,11 @@
             @csrf
             <input type="hidden" name="event_id" id="event_id" value="{{ $events->id }}">
             <input type="hidden" name="status_pembayaran" id="status_pembayaran" value="Sudah Dibayar">
+            @if($message != NULL)
+            <div class="form-group row col-md-11">
+                <label for="tgl_transfer">{{ $message }}</label>
+            </div>
+            @endif
             <div class="form-group row col-md-11">
                 <label for="metode_pembayaran">Metode Pembayaran</label>
                 <select type="text" class="form-select" name="metode_pembayaran" value="{{ old('metode_pembayaran') }}">

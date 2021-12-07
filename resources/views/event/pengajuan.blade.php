@@ -44,6 +44,13 @@
         <h4 style="text-align: center">Pengajuan Event</h4> <br>    
         <form method="POST" action="/pengajuan" class="offset-md-1" enctype="multipart/form-data">
             @csrf
+            <!-- Untuk warning tidak upload bukti pembayaran -->
+            @if($message != NULL)
+            <div class="form-group row col-md-11">
+                <label for="warning">{{ $message }}</label>
+            </div>
+            @endif
+            
             <div class="form-group row col-md-11">
                 <label for="nama_event">Nama Event</label>
                 <input type="text" class="form-control" name="nama_event" value="{{ old('nama_event') }}">

@@ -11,9 +11,10 @@ class PembayaranController extends Controller
     public function index($id)
     {
         return view('user.pembayaran', [
-            "title" => "Pengajuan Event",
-            'active' => 'categories',
-            'events' => Event::where('id', $id)->first()
+            "title" => "Pembayaran Event",
+            'active' => 'events',
+            'events' => Event::where('id', $id)->first(),
+            'message' => NULL
         ]);
     }
     public function store(Request $request)
@@ -23,18 +24,26 @@ class PembayaranController extends Controller
         // if(!File::isDirectory($uploadPath)) {
         //     File::makeDirectory($uploadPath, 0755, true, true);
         // }
-        if (($file = $request->file('bukti_bayar')) == NULL)
-            echo "gada file";
-        else
+        if (($file = $request->file('bukti_bayar')) == NULL){
+            return view('user.pembayaran', [
+                "title" => "Pembayaran Event",
+                'active' => 'events',
+                'events' => Event::where('id', request('event_id'))->first(),
+                'message' => 'Harap masukkan bukti pembayaran'
+            ]);
+        }
+        else{
             $uniqueFileName = uniqid() . '.' . $file->getClientOriginalExtension();
-        $file->move($uploadPath, $uniqueFileName);
+            $file->move($uploadPath, $uniqueFileName);
+            $imagepath = 'payment/' . $uniqueFileName;
+        
         Payment::create([
             'metode_pembayaran' => request('metode_pembayaran'),
             'tgl_transfer' => request('tgl_transfer'),
             'jml_transfer' => request('jml_transfer'),
             'event_id' => request('event_id'),
             'status_pembayaran' => request('status_pembayaran'),
-            'bukti_bayar' => 'payment/' . $uniqueFileName
+            'bukti_bayar' => $imagepath
         ]);
 
         $id_event = $request->event_id;
@@ -44,6 +53,7 @@ class PembayaranController extends Controller
         //User::create($validatedData);
 
         return redirect('/profile');
+        }
     }
     public function accept(Request $request){
         $id_event = $request->event_id;
