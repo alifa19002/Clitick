@@ -48,7 +48,7 @@
                     <br><a href="https://{{ $event->link_reg }}">{{ $event->link_reg }}</a>
                 </div>
                 {{-- <hr> --}}
-                <div class="desc mt-3">
+                <!-- <div class="desc mt-3">
                         <p>For more information :
                         <br> Ig : @event
                         <br> Email : event@gmail.com
@@ -56,7 +56,7 @@
                         <br> Contact Person :
                         <br> Justin (085xxxxxxxxx)
                         <br> Hailey (085xxxxxxxxx)</p>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
