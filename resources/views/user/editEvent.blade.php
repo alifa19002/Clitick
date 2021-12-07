@@ -41,9 +41,6 @@
       <!-- navbar -->
     @include('template.navbar')
 
-    @if (Auth::user()->is_admin == 1)
-
-    
     <div class="container bg-dark text-white col-md-8 justify-content-center py-3 my-3 ">
         <h4 style="text-align: center; color: white; margin-top:30px">Form Edit Event</h4> <br> 
         <form method="post" action="/events/{{ $event->slug }}" class="offset-md-1" enctype="multipart/form-data">
@@ -189,6 +186,5 @@
     }
 
 </script>
-@endif
 </body>
 </html>
