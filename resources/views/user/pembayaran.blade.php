@@ -30,8 +30,8 @@
             <input type="hidden" name="status_pembayaran" id="status_pembayaran" value="Sudah Dibayar">
             <!-- Untuk warning tidak upload bukti pembayaran -->
             @if($message != NULL)
-            <div class="form-group row col-md-11">
-                <label for="warning">{{ $message }}</label>
+            <div class="alert alert-warning col-lg-8" role="alert">
+                {{ $message }}
             </div>
             @endif
             
