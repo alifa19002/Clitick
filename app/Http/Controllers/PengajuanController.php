@@ -48,6 +48,6 @@ class PengajuanController extends Controller
 
         //User::create($validatedData);
 
-        return redirect('/pengajuan');
+        return redirect('/pengajuan')->with('success', 'Event berhasil diajukan.');
     }
 }

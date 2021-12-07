@@ -33,6 +33,12 @@
             background-color: white;
             color: black;
         }
+        .container .form-group{
+            margin-bottom:20px;
+        }
+        .container h4{
+            margin-top:20px;
+        }
     </style>
   </head>
   <body class="bg">
@@ -40,6 +46,13 @@
     @include('template.navbar')
     
     <!-- Content -->
+    <div class="row justify-content-md-center" style="margin-top:50px">
+        @if (session()->has('success'))
+        <div class="alert alert-success col-lg-6" role="alert">
+            {{ session('success') }}
+        </div>
+        @endif
+    </div>
     <div class="container bg-dark text-white col-md-8 justify-content-center py-3 my-3 ">
         <h4 style="text-align: center">Pengajuan Event</h4> <br>    
         <form method="POST" action="/pengajuan" class="offset-md-1" enctype="multipart/form-data">

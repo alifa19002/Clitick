@@ -26,7 +26,7 @@
                 
                 @if (Auth::user()->is_admin == 1)
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle {{ $title === ("Dashboard") ? 'active' : '' }}" href="/events" id="navbarDropdown" role="button"  aria-expanded="false">
+                    <a class="nav-link dropdown-toggle {{ $title === ("Dashboard") ? 'active' : '' }}" href="/dashboard/events" id="navbarDropdown" role="button"  aria-expanded="false">
                     Database<i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="/dashboard/events">Rekap Event</a></li>
