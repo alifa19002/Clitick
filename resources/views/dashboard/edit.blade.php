@@ -75,35 +75,27 @@
                 @enderror
             </div>
             <div class="form-group row col-md-11 mt-3">
-                <label for="kategori-event" class="form-label">Category</label>
-                <select class="form-select" name="category_id" value="{{ old('category_id') }}">
-                    <option value=""></option>
-                    @foreach ($categories as $category)
-                    <option value="{{ $category->id }}">{{ $category->nama_kategori }}</option>
-                    @endforeach
-                    {{-- @foreach($categories as $category)
+                <label for="category_id" class="form-label">Category</label>
+                <select class="form-select" name="category_id"">
+                    @foreach($categories as $category)
                     @if (old('category_id', $event->category_id) == $category->id)
-                    <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
+                    <option value="{{ $category->id }}" selected>{{ $category->nama_kategori }}</option>
                     @else
-                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    <option value="{{ $category->id }}">{{ $category->nama_kategori }}</option>
                     @endif
-                    @endforeach --}}
+                    @endforeach
                 </select>
             </div>
             <div class="form-group row col-md-11 mt-3">
-                <label for="domisili" class="form-label">Domisili</label>
-                <select class="form-select" name="domisili_id" value="{{ old('domisili_id') }}">
-                    <option value=""></option>
-                    @foreach ($domisilis as $domisili)
-                    <option value="{{ $domisili->id }}">{{ $domisili->nama_domisili }}</option>
-                    @endforeach
-                    {{-- @foreach($domisilis as $domisili)
+                <label for="domisili_id" class="form-label">Domisili</label>
+                <select class="form-select" name="domisili_id"">
+                    @foreach($domisilis as $domisili)
                     @if (old('domisili_id', $event->domisili_id) == $domisili->id)
-                    <option value="{{ $domisili->id }}" selected>{{ $domisili->name }}</option>
+                    <option value="{{ $domisili->id }}" selected>{{ $domisili->nama_domisili }}</option>
                     @else
-                    <option value="{{ $domisili->id }}">{{ $domisili->name }}</option>
+                    <option value="{{ $domisili->id }}">{{ $domisili->nama_domisili }}</option>
                     @endif
-                    @endforeach --}}
+                    @endforeach
                 </select>
             </div>
             <div class="form-group row col-md-11 mt-3">
