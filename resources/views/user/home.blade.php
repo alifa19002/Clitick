@@ -49,7 +49,7 @@
             <div class="carousel-item {{ $key == 0 ? 'active : ' : ''}}">
               <a href="/events/{{ $events->slug }}"><img src="{{ asset('storage/' . $events->poster) }}" width="400px" alt="POSTER"></a>
               <div class="car-caption">
-                <a style="opacity: 90%" class="btn btn-primary tombol" href="/events/{{ $events->slug }}">
+                <a style="opacity: 90%" class="tombol" href="/events/{{ $events->slug }}">
                   <h5 style="color: white" class="mt-2 pb-0 mb-0">{{ $events->nama_event }}</h5><h6 style="color: white" class="mt-0 pt-0 mb-2">{{ $events->tgl_event }}</h6>
                 </a>
               </div>

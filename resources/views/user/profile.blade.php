@@ -88,7 +88,7 @@
                         <div class="content col-md-8 mb-3">
                           <a style="float: right" href="/pengajuan"><i class="fas fa-plus-circle fa-lg"> </i> Add Event</a>
                         </div>
-                        <div class="my col-md-8" id="data">
+                        <div class="my col-md-10" id="data">
                             @if($my_events->count())
                             <table class="table table-responsive-sm css-serial" style="text-align:center">
                                 <tr class="table-secondary">
@@ -109,7 +109,7 @@
                                     <td>{{ $event->category->nama_kategori}}</td>
                                     <td>{{ $event->tgl_event }}</td>
                                     <td>
-                                        <a href="#" class="btn btn-primary tombol2">{{ $event->status_event }}</a>
+                                        <p>{{ $event->status_event }}</p>
                                     </td>
                                     
                                     <td>
@@ -118,20 +118,20 @@
                                         @elseif( $event->status_event=="Rejected")
                                         <p></p>
                                         @elseif( $event->status_event=="Payment" && $event->payment_id==NULL)
-                                        <a href="/pembayaran/{{ $event->id }}" class="btn btn-primary">Belum Dibayar</a>
+                                        <a href="/pembayaran/{{ $event->id }}" class="btn btn-primary tombol2">Belum Dibayar</a>
                                         @else
-                                        <a href="#" class="btn btn-primary">{{ $event->payment->status_pembayaran }}</a>
+                                        <p>{{ $event->payment->status_pembayaran }}</p>
                                         @endif
                                     </td>
 
                                     <td>
                                         @if( $event->user_id == auth()->user()->id)
                                         @if( $event->status_event == "Requested" && $event->payment_id == NULL)
-                                        <a href="/events/{{ $event->slug }}/edit" class="btn btn-primary">Edit</a>
-                                        <form action="/events/{{ $event->slug }}" method="post" class="d-inline-flex">
+                                        <a href="/events/{{ $event->slug }}/edit" class="btn btn-primary tombol2" style="width:35%">Edit</a>
+                                        <form action="/events/{{ $event->slug }}" method="post">
                                             @method('delete')
                                             @csrf
-                                            <button class="btn btn-danger tombol2" onclick="return confirm('Apakah Anda yakin ingin menghapus data?')">Hapus</button>
+                                            <button class="btn btn-danger tombol2" style="width:35%" onclick="return confirm('Apakah Anda yakin ingin menghapus data?')">Hapus</button>
                                         </form>
                                         @else
                                         <p>Anda tidak bisa lagi melakukan perubahan terhadap konten event</p>
