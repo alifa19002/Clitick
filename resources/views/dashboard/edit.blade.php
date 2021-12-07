@@ -128,7 +128,7 @@
                 <input type="hidden" class="form-control @error('status_event') is-invalid @enderror" id="status_event" name="status_event" required value="Requested">
             </div>
             <div class="mb-3">
-                <input type="hidden" class="form-control @error('user_id') is-invalid @enderror" id="user_id" name="user_id" required value={{ auth()->user()->id }}>
+                <input type="hidden" class="form-control @error('user_id') is-invalid @enderror" id="user_id" name="user_id" required value={{ $event->user_id }}>
             </div>
             <div class="row col-md-11 mt-3" style="margin-bottom:40px">
                 <label for="poster" class="form-label">Upload Image</label>
