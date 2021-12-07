@@ -36,6 +36,7 @@ class PengajuanController extends Controller
         }
         else{
             $imagepath = NULL;
+        }
             Event::create([
                 'nama_event' => request('nama_event'),
                 'institusi_penyelenggara' => request('institusi_penyelenggara'),
@@ -53,6 +54,5 @@ class PengajuanController extends Controller
             //User::create($validatedData);
 
             return redirect('/pengajuan')->with('success', 'Event berhasil diajukan.');
-        }
     }
 }
